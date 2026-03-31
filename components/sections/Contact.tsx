@@ -25,10 +25,10 @@ export default function Contact() {
             Contact
           </p>
           <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Let’s build something clear, useful, and worth remembering.
+            Contact
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-600">
-            Open to product design roles, freelance work, and thoughtful collaboration.
+             For product design roles, freelance opportunities, or thoughtful collaboration, reach me by email or LinkedIn.
           </p>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">

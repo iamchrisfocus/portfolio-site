@@ -59,11 +59,10 @@ export default function Work() {
             Work
           </p>
           <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Selected work, led by product thinking and shaped for clarity.
+            Selected Projects
           </h2>
           <p className="mt-6 text-lg leading-8 text-neutral-600">
-            A focused selection of product design work across fintech, SaaS, and
-            service platforms.
+            A few products I’ve helped shape across fintech, services, and everyday utility tools.
           </p>
         </div>
 

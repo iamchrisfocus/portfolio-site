@@ -6,17 +6,15 @@ export default function Hero() {
       <Container>
         <div className="max-w-4xl">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
-            Portfolio Rebuild
+            Product Designer • 0→1, Growth, and UX Strategy
           </p>
 
           <h1 className="text-5xl font-semibold leading-tight tracking-tight sm:text-6xl md:text-7xl">
-            Product Designer for ambitious teams building real-world digital
-            products.
+            I design digital products that make complex experiences easier to understand and easier to use.
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-600">
-            I design clear, usable digital products with a focus on product
-            thinking, interaction, and execution.
+            From product discovery to workflow design, I turn messy problems into clear, usable experiences for real people and real business goals.
           </p>
         </div>
       </Container>
