@@ -56,13 +56,16 @@ export default function Work() {
       <Container>
         <div className="max-w-3xl">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
-            Work
-          </p>
-          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
             Selected Projects
+          </p>
+
+          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+            Selected Work
           </h2>
+
           <p className="mt-6 text-lg leading-8 text-neutral-600">
-            A few products I’ve helped shape across fintech, services, and everyday utility tools.
+            A few products I’ve helped shape across fintech, services, and
+            everyday utility tools.
           </p>
         </div>
 
