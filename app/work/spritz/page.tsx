@@ -30,7 +30,6 @@ export default function SpritzPage() {
 
             <div className="mt-16">
               <CaseStudyPagination
-                previous={{ title: "i-invest Rebuild", href: "/work/i-invest" }}
                 next={{ title: "HireCleaner", href: "/work/hirecleaner" }}
               />
             </div>
