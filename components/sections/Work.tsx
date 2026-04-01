@@ -1,51 +1,18 @@
 import Container from "@/components/ui/Container";
-import FeaturedProjectCard from "@/components/ui/FeaturedProjectCard";
-import ProjectCard from "@/components/ui/ProjectCard";
 import { featuredProject, supportingProjects } from "@/lib/data";
 
-function ProjectPreview({ tone }: { tone: string }) {
-  if (tone === "mobile") {
-    return (
-      <div className="rounded-[1.25rem] border border-neutral-200 bg-neutral-50 p-4">
-        <div className="mx-auto max-w-[180px] rounded-[1.5rem] border border-neutral-300 bg-black p-2">
-          <div className="overflow-hidden rounded-[1.125rem] bg-white">
-            <div className="aspect-[9/19] bg-gradient-to-b from-neutral-100 to-neutral-200" />
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (tone === "web") {
-    return (
-      <div className="rounded-[1.25rem] border border-neutral-200 bg-neutral-50 p-4">
-        <div className="overflow-hidden rounded-[1rem] border border-neutral-300 bg-white">
-          <div className="aspect-[16/10] bg-gradient-to-br from-neutral-100 to-neutral-200 p-3">
-            <div className="h-5 w-24 rounded-full bg-white/80" />
-            <div className="mt-4 grid gap-3">
-              <div className="h-24 rounded-xl bg-white/90" />
-              <div className="grid grid-cols-2 gap-3">
-                <div className="h-16 rounded-xl bg-white/90" />
-                <div className="h-16 rounded-xl bg-white/90" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
+function FeaturedMediaSlot() {
   return (
-    <div className="rounded-[1.25rem] border border-neutral-200 bg-neutral-50 p-4">
-      <div className="overflow-hidden rounded-[1rem] border border-neutral-300 bg-white">
-        <div className="aspect-[16/10] bg-gradient-to-br from-neutral-100 to-neutral-200 p-4">
-          <div className="grid h-full grid-cols-2 gap-3">
-            <div className="rounded-xl bg-white/90" />
-            <div className="rounded-xl bg-white/90" />
-            <div className="col-span-2 rounded-xl bg-white/90" />
-          </div>
-        </div>
-      </div>
+    <div className="rounded-[2rem] bg-neutral-100 p-4">
+      <div className="aspect-[4/3] rounded-[1.5rem] border border-dashed border-neutral-300 bg-neutral-50" />
+    </div>
+  );
+}
+
+function SupportingMediaSlot() {
+  return (
+    <div className="rounded-[1.5rem] bg-neutral-100 p-4">
+      <div className="aspect-square rounded-[1.25rem] border border-dashed border-neutral-300 bg-neutral-50 md:h-full md:min-h-[180px] md:aspect-auto" />
     </div>
   );
 }
@@ -56,46 +23,73 @@ export default function Work() {
       <Container>
         <div className="max-w-3xl">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
-            Selected Projects
+            Case Study
           </p>
 
           <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Selected Work
+            Selected work
           </h2>
 
-          <p className="mt-6 text-lg leading-8 text-neutral-600">
-            A few products I’ve helped shape across fintech, services, and
-            everyday utility tools.
+          <p className="mt-4 max-w-2xl text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">
+            A few products I’ve helped shape across fintech, services, and everyday utility tools.
           </p>
         </div>
 
-        <FeaturedProjectCard
-          title={featuredProject.title}
-          meta={featuredProject.meta}
-          description={featuredProject.description}
-          href={featuredProject.href}
-        >
-          <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 p-6">
-            <div className="mx-auto max-w-[280px] rounded-[2rem] border border-neutral-300 bg-black p-2 shadow-sm">
-              <div className="overflow-hidden rounded-[1.5rem] bg-white">
-                <div className="aspect-[9/19] bg-gradient-to-b from-neutral-100 to-neutral-200" />
-              </div>
-            </div>
-          </div>
-        </FeaturedProjectCard>
+        <div className="mt-12 grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
+          <a
+            href={featuredProject.href}
+            className="rounded-[2rem] border border-neutral-200 bg-white p-5 transition hover:border-neutral-900"
+          >
+            <FeaturedMediaSlot />
 
-        <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {supportingProjects.map((project) => (
-            <ProjectCard
-              key={project.title}
-              title={project.title}
-              meta={project.meta}
-              description={project.description}
-              href={project.href}
-            >
-              <ProjectPreview tone={project.tone} />
-            </ProjectCard>
-          ))}
+            <div className="mt-5">
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-neutral-500">
+                {featuredProject.meta}
+              </p>
+
+              <h3 className="mt-2 text-3xl font-semibold tracking-tight">
+                {featuredProject.title}
+              </h3>
+
+              <p className="mt-4 max-w-xl text-base leading-7 text-neutral-600">
+                {featuredProject.description}
+              </p>
+
+              <p className="mt-6 text-sm font-medium text-black">
+                View case study
+              </p>
+            </div>
+          </a>
+
+          <div className="grid gap-6">
+            {supportingProjects.map((project) => (
+              <a
+                key={project.title}
+                href={project.href}
+                className="grid rounded-[2rem] border border-neutral-200 bg-white p-5 transition hover:border-neutral-900 md:grid-cols-[180px_1fr] md:items-stretch"
+              >
+                <SupportingMediaSlot />
+
+                <div className="mt-5 flex flex-col justify-center md:mt-0 md:pl-5">
+                  <p className="text-xs font-medium uppercase tracking-[0.16em] text-neutral-500">
+                    {project.meta}
+                  </p>
+
+                  <h3 className="mt-2 text-2xl font-semibold tracking-tight">
+                    {project.title}
+                  </h3>
+
+                  <p className="mt-3 text-base leading-7 text-neutral-600">
+                    {project.description}
+                  </p>
+
+                  <p className="mt-5 text-sm font-medium text-black">
+                    View case study
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

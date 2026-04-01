@@ -20,24 +20,27 @@ export default function Contact() {
   return (
     <section id="contact" className="border-t border-neutral-200 bg-white py-24">
       <Container>
-        <div className="max-w-4xl">
+        <div className="max-w-5xl">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
             Contact
           </p>
-          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Contact
+
+          <h2 className="max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
+            Open to product design roles, freelance work, and thoughtful collaboration.
           </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-600">
-             For product design roles, freelance opportunities, or thoughtful collaboration, reach me by email or LinkedIn.
+
+          <p className="mt-6 max-w-2xl text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">
+            Reach me by email or LinkedIn. I’m especially interested in product
+            design opportunities where clarity, product thinking, and execution matter.
           </p>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            <div className="rounded-[1.5rem] border border-neutral-200 p-6">
+            <div className="rounded-[1.75rem] border border-neutral-200 bg-white p-6">
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
                 Email
               </p>
 
-              <div className="mt-3 flex items-center gap-3">
+              <div className="mt-4 flex items-center gap-3">
                 <a
                   href={`mailto:${email}`}
                   className="text-lg font-medium text-black transition hover:underline"
@@ -71,15 +74,16 @@ export default function Contact() {
               )}
             </div>
 
-            <div className="rounded-[1.5rem] border border-neutral-200 p-6">
+            <div className="rounded-[1.75rem] border border-neutral-200 bg-white p-6">
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
                 LinkedIn
               </p>
+
               <a
                 href="https://linkedin.com/in/ocfatukasi"
                 target="_blank"
                 rel="noreferrer"
-                className="mt-3 block text-lg font-medium text-black transition hover:underline"
+                className="mt-4 block text-lg font-medium text-black transition hover:underline"
               >
                 linkedin.com/in/ocfatukasi
               </a>
