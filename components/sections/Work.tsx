@@ -1,10 +1,17 @@
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import { featuredProject, supportingProjects } from "@/lib/data";
 
 function FeaturedMediaSlot() {
   return (
-    <div className="rounded-[2rem] bg-neutral-100 p-4">
-      <div className="aspect-[4/3] rounded-[1.5rem] border border-dashed border-neutral-300 bg-neutral-50" />
+    <div className="overflow-hidden rounded-[2rem] border border-neutral-200 bg-neutral-50">
+      <Image
+        src="/images/spritz/spritz-hero-composite.webp"
+        alt="Spritz case study preview"
+        width={1600}
+        height={1200}
+        className="h-auto w-full"
+      />
     </div>
   );
 }
