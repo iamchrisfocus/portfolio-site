@@ -6,6 +6,7 @@ type DecisionImage = {
   src: string;
   alt: string;
   caption: string;
+  heading?: string;
 };
 
 type CaseStudyDecisionBlockProps = {
@@ -84,23 +85,28 @@ export default function CaseStudyDecisionBlock({
           </div>
 
           {images.length > 0 ? (
-            <div className="mt-10 space-y-8">
+            <div className="mt-10 space-y-10">
               {images.map((image) => (
-                <figure
-                  key={image.src}
-                  className="overflow-hidden rounded-[1.75rem] border border-neutral-200 bg-neutral-50"
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={1600}
-                    height={1200}
-                    className="h-auto w-full"
-                  />
-                  <figcaption className="border-t border-neutral-200 bg-white px-5 py-4 text-sm leading-6 text-neutral-600 sm:px-6">
-                    {image.caption}
-                  </figcaption>
-                </figure>
+                <div key={image.src}>
+                  {image.heading ? (
+                    <h3 className="mb-4 text-lg font-semibold tracking-tight text-black sm:text-xl">
+                      {image.heading}
+                    </h3>
+                  ) : null}
+
+                  <figure className="overflow-hidden rounded-[1.75rem] border border-neutral-200 bg-neutral-50">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      width={1600}
+                      height={1200}
+                      className="h-auto w-full"
+                    />
+                    <figcaption className="border-t border-neutral-200 bg-white px-5 py-4 text-sm leading-6 text-neutral-600 sm:px-6">
+                      {image.caption}
+                    </figcaption>
+                  </figure>
+                </div>
               ))}
             </div>
           ) : null}
