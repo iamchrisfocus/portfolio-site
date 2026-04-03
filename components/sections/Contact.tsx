@@ -25,7 +25,7 @@ export default function Contact() {
             Contact
           </p>
 
-          <h2 className="max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
+          <h2 className="max-w-3xl text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl">
             Open to product design roles, freelance work, and thoughtful collaboration.
           </h2>
 

@@ -243,7 +243,7 @@ export default function SplitSettlePage() {
         intro={
           <>
             <p>
-              Asof 2025 OPay is one of Nigeria’s largest fintech platforms: a mobile wallet used for
+              As of 2025 OPay is one of Nigeria’s largest fintech platforms: a mobile wallet used for
               transfers, bill payments, cards, merchant payments, and everyday money
               movement at scale. The company says it serves 50M+ users and 1M+
               merchants, which makes it the kind of product where a shared-expense

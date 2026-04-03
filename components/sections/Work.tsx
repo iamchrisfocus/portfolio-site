@@ -77,7 +77,7 @@ export default function Work() {
             Case Study
           </p>
 
-          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+          <h2 className="text-4xl font-medium tracking-tight sm:text-5xl">
             Selected work
           </h2>
 

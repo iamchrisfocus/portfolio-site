@@ -9,7 +9,7 @@ export default function About() {
             About
           </p>
 
-          <h2 className="max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
+          <h2 className="max-w-4xl text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl">
             Designing clearer products for real people, practical business goals, and better decisions.
           </h2>
 
