@@ -39,6 +39,28 @@ function SupportingMediaSlot({ title }: { title: string }) {
     );
   }
 
+  if (title === "Split & Settle") {
+    return (
+      <div
+        className="rounded-[1.5rem] p-4"
+        style={{ backgroundColor: "#EEEEEE" }}
+      >
+        <div
+          className="aspect-square overflow-hidden rounded-[1.25rem] border border-neutral-200 p-3 md:h-full md:min-h-[180px] md:aspect-auto"
+          style={{ backgroundColor: "#EEEEEE" }}
+        >
+          <Image
+            src="/images/split-settle/split-settle-card-preview.webp"
+            alt="Split & Settle case study preview"
+            width={720}
+            height={880}
+            className="h-full w-full object-contain object-center transition-transform duration-500 ease-out group-hover:scale-[1.14]"
+          />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="rounded-[1.5rem] bg-neutral-100 p-4">
       <div className="aspect-square rounded-[1.25rem] border border-dashed border-neutral-300 bg-neutral-50 md:h-full md:min-h-[180px] md:aspect-auto" />
