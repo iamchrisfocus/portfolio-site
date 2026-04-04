@@ -52,7 +52,7 @@ function Section({
           ) : null}
 
           <div className="max-w-3xl">
-            <h2 className="text-3xl font-semibold tracking-tight text-black sm:text-4xl md:text-5xl">
+            <h2 className="text-3xl font-medium tracking-tight text-black sm:text-4xl md:text-5xl">
               {title}
             </h2>
 
@@ -116,7 +116,7 @@ type ProblemCardProps = {
 function ProblemCard({ title, body }: ProblemCardProps) {
   return (
     <div className="rounded-[1.5rem] border border-neutral-200 bg-white p-6">
-      <h3 className="text-lg font-semibold tracking-tight text-black">{title}</h3>
+      <h3 className="text-lg font-medium tracking-tight text-black">{title}</h3>
       <p className="mt-3 text-base leading-7 text-neutral-600">{body}</p>
     </div>
   );
@@ -130,7 +130,7 @@ type DecisionCardProps = {
 function DecisionCard({ title, body }: DecisionCardProps) {
   return (
     <div className="rounded-[1.5rem] border border-neutral-200 bg-white p-6">
-      <h3 className="text-lg font-semibold tracking-tight text-black">{title}</h3>
+      <h3 className="text-lg font-medium tracking-tight text-black">{title}</h3>
       <p className="mt-3 text-base leading-7 text-neutral-600">{body}</p>
     </div>
   );
@@ -144,7 +144,7 @@ type ValueCardProps = {
 function ValueCard({ title, body }: ValueCardProps) {
   return (
     <div className="rounded-[1.5rem] border border-neutral-200 bg-white p-6">
-      <h3 className="text-base font-semibold tracking-tight text-black">{title}</h3>
+      <h3 className="text-base font-medium tracking-tight text-black">{title}</h3>
       <p className="mt-3 text-base leading-7 text-neutral-600">{body}</p>
     </div>
   );
@@ -189,7 +189,7 @@ export default function SplitSettlePage() {
                 Concept case study
               </p>
 
-              <h1 className="max-w-[11ch] text-5xl font-semibold tracking-tight text-black sm:text-6xl md:text-7xl">
+              <h1 className="max-w-[11ch] text-5xl font-medium tracking-tight text-black sm:text-6xl md:text-7xl">
                 Split &amp; Settle
               </h1>
 
@@ -437,7 +437,7 @@ export default function SplitSettlePage() {
       >
         <div className="space-y-10">
           <div className="mx-auto w-full max-w-[820px]">
-            <p className="mb-4 text-base font-semibold uppercase tracking-[0.16em] text-neutral-500">
+            <p className="mb-4 text-base font-medium uppercase tracking-[0.16em] text-neutral-500">
               Equal split
             </p>
             <ImageCard
@@ -447,7 +447,7 @@ export default function SplitSettlePage() {
           </div>
 
           <div className="mx-auto w-full max-w-[820px]">
-            <p className="mb-4 text-base font-semibold uppercase tracking-[0.16em] text-neutral-500">
+            <p className="mb-4 text-base font-medium uppercase tracking-[0.16em] text-neutral-500">
               Custom split
             </p>
             <ImageCard
@@ -596,7 +596,7 @@ export default function SplitSettlePage() {
           <div className="max-w-6xl">
             <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.9fr)_minmax(0,1.4fr)] lg:gap-16">
               <div className="max-w-md">
-                <h2 className="text-3xl font-semibold tracking-tight text-black sm:text-4xl md:text-5xl">
+                <h2 className="text-3xl font-medium tracking-tight text-black sm:text-4xl md:text-5xl">
                   What I’d validate next
                 </h2>
                 <div className="mt-5 space-y-5 text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">

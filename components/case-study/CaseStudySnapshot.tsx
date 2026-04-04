@@ -18,7 +18,7 @@ export default function CaseStudySnapshot({
     <section className="border-b border-neutral-200 bg-white py-16 sm:py-20">
       <Container>
         <div className="max-w-5xl">
-          <h2 className="text-2xl font-semibold tracking-tight text-black sm:text-3xl">
+          <h2 className="text-2xl font-medium tracking-tight text-black sm:text-3xl">
             {title}
           </h2>
 

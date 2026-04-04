@@ -9,7 +9,7 @@ export default function Hero() {
             Product Designer • 0→1, Growth, and UX Strategy
           </p>
 
-          <h1 className="max-w-[25\7ch] text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-[4rem]">
+          <h1 className="max-w-[25\7ch] text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl md:text-[4rem]">
             I design digital products that make complexity easier to use.
           </h1>
 

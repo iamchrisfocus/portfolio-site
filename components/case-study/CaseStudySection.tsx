@@ -22,7 +22,7 @@ export default function CaseStudySection({
             </p>
           ) : null}
 
-          <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-black sm:text-4xl md:text-5xl">
+          <h2 className="max-w-4xl text-3xl font-medium tracking-tight text-black sm:text-4xl md:text-5xl">
             {title}
           </h2>
 

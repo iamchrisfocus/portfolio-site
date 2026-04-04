@@ -77,7 +77,7 @@ export default function Work() {
             Case Study
           </p>
 
-          <h2 className="text-4xl font-medium tracking-tight sm:text-5xl">
+          <h2 className="max-w-2xl text-2xl font-medium tracking-tight sm:text-3xl">
             Selected work
           </h2>
 
@@ -99,7 +99,7 @@ export default function Work() {
                 {featuredProject.meta}
               </p>
 
-              <h3 className="mt-2 text-3xl font-semibold tracking-tight">
+              <h3 className="mt-2 text-3xl font-medium tracking-tight">
                 {featuredProject.title}
               </h3>
 
@@ -127,7 +127,7 @@ export default function Work() {
                     {project.meta}
                   </p>
 
-                  <h3 className="mt-2 text-2xl font-semibold tracking-tight">
+                  <h3 className="mt-2 text-2xl font-medium tracking-tight">
                     {project.title}
                   </h3>
 

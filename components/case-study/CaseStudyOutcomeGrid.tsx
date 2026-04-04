@@ -18,7 +18,7 @@ export default function CaseStudyOutcomeGrid({
     <section className="border-b border-neutral-200 bg-white py-16 sm:py-20">
       <Container>
         <div className="max-w-5xl">
-          <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-black sm:text-4xl md:text-5xl">
+          <h2 className="max-w-4xl text-3xl font-medium tracking-tight text-black sm:text-4xl md:text-5xl">
             {title}
           </h2>
 
@@ -28,7 +28,7 @@ export default function CaseStudyOutcomeGrid({
                 key={item.title}
                 className="rounded-[1.5rem] border border-neutral-200 bg-white p-6"
               >
-                <h3 className="text-lg font-semibold tracking-tight text-black sm:text-xl">
+                <h3 className="text-lg font-medium tracking-tight text-black sm:text-xl">
                   {item.title}
                 </h3>
 

@@ -37,7 +37,7 @@ export default function CaseStudyHero({
               {eyebrow}
             </p>
 
-            <h1 className="max-w-[14ch] text-4xl font-semibold tracking-tight text-black sm:text-5xl md:text-6xl">
+            <h1 className="max-w-[14ch] text-4xl font-medium tracking-tight text-black sm:text-5xl md:text-6xl">
               {title}
             </h1>
 

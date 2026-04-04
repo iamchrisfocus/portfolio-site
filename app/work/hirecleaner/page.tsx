@@ -22,7 +22,7 @@ export default function HireCleanerPage() {
               Case Study
             </p>
 
-            <h1 className="max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
+            <h1 className="max-w-4xl text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl">
               HireCleaner
             </h1>
 
@@ -410,7 +410,7 @@ export default function HireCleanerPage() {
 
         <div className="grid gap-4 pt-4 sm:grid-cols-3">
           <div className="rounded-[1.75rem] border border-neutral-200 bg-neutral-50 px-6 py-8 sm:px-7">
-            <p className="text-4xl font-semibold tracking-tight text-black sm:text-5xl">
+            <p className="text-4xl font-medium tracking-tight text-black sm:text-5xl">
               1
             </p>
             <p className="mt-3 text-sm uppercase tracking-[0.16em] text-neutral-500">
@@ -419,7 +419,7 @@ export default function HireCleanerPage() {
           </div>
 
           <div className="rounded-[1.75rem] border border-neutral-200 bg-neutral-50 px-6 py-8 sm:px-7">
-            <p className="text-4xl font-semibold tracking-tight text-black sm:text-5xl">
+            <p className="text-4xl font-medium tracking-tight text-black sm:text-5xl">
               5
             </p>
             <p className="mt-3 text-sm uppercase tracking-[0.16em] text-neutral-500">
@@ -428,7 +428,7 @@ export default function HireCleanerPage() {
           </div>
 
           <div className="rounded-[1.75rem] border border-neutral-200 bg-neutral-50 px-6 py-8 sm:px-7">
-            <p className="text-4xl font-semibold tracking-tight text-black sm:text-5xl">
+            <p className="text-4xl font-medium tracking-tight text-black sm:text-5xl">
               4
             </p>
             <p className="mt-3 text-sm uppercase tracking-[0.16em] text-neutral-500">

@@ -40,7 +40,7 @@ export default function CaseStudyDecisionBlock({
     <section className="border-b border-neutral-200 bg-white py-16 sm:py-20">
       <Container>
         <div className="max-w-5xl">
-          <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-black sm:text-4xl md:text-5xl">
+          <h2 className="max-w-4xl text-2xl font-medium tracking-tight text-black sm:text-3xl md:text-4xl">
             {title}
           </h2>
 
@@ -49,7 +49,7 @@ export default function CaseStudyDecisionBlock({
 
             {problemBody ? (
               <div>
-                <h3 className="text-lg font-semibold tracking-tight text-black sm:text-xl">
+                <h3 className="text-lg font-medium tracking-tight text-black sm:text-xl">
                   {problemTitle}
                 </h3>
                 <div className="mt-3 space-y-5">{problemBody}</div>
@@ -58,7 +58,7 @@ export default function CaseStudyDecisionBlock({
 
             {explorationBody ? (
               <div>
-                <h3 className="text-lg font-semibold tracking-tight text-black sm:text-xl">
+                <h3 className="text-lg font-medium tracking-tight text-black sm:text-xl">
                   {explorationTitle}
                 </h3>
                 <div className="mt-3 space-y-5">{explorationBody}</div>
@@ -67,7 +67,7 @@ export default function CaseStudyDecisionBlock({
 
             {decisionBody ? (
               <div>
-                <h3 className="text-lg font-semibold tracking-tight text-black sm:text-xl">
+                <h3 className="text-lg font-medium tracking-tight text-black sm:text-xl">
                   {decisionTitle}
                 </h3>
                 <div className="mt-3 space-y-5">{decisionBody}</div>
@@ -76,7 +76,7 @@ export default function CaseStudyDecisionBlock({
 
             {impactBody ? (
               <div>
-                <h3 className="text-lg font-semibold tracking-tight text-black sm:text-xl">
+                <h3 className="text-lg font-medium tracking-tight text-black sm:text-xl">
                   {impactTitle}
                 </h3>
                 <div className="mt-3 space-y-5">{impactBody}</div>
@@ -89,7 +89,7 @@ export default function CaseStudyDecisionBlock({
               {images.map((image) => (
                 <div key={image.src}>
                   {image.heading ? (
-                    <h3 className="mb-4 text-lg font-semibold tracking-tight text-black sm:text-xl">
+                    <h3 className="mb-4 text-lg font-medium tracking-tight text-black sm:text-xl">
                       {image.heading}
                     </h3>
                   ) : null}

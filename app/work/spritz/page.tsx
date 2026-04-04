@@ -504,7 +504,7 @@ export default function SpritzPage() {
 
         <div className="pt-4">
           <div className="rounded-[1.75rem] border border-neutral-200 bg-neutral-50 px-6 py-8 sm:px-8 sm:py-10">
-            <p className="text-5xl font-semibold tracking-tight text-black sm:text-6xl md:text-7xl">
+            <p className="text-5xl font-medium tracking-tight text-black sm:text-6xl md:text-7xl">
               200+
             </p>
             <p className="mt-3 max-w-md text-sm uppercase tracking-[0.16em] text-neutral-500">

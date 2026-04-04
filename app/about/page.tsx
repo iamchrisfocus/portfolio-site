@@ -5,7 +5,7 @@ export default function AboutPage() {
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
             About
           </p>
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+          <h1 className="text-4xl font-medium tracking-tight sm:text-5xl">
             Product designer with a bias for clarity, structure, and real-world
             usefulness.
           </h1>

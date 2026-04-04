@@ -28,7 +28,7 @@ export default function CaseStudyImageGrid({
     <section id={id} className="border-b border-neutral-200 bg-white py-16 sm:py-20">
       <Container>
         <div className="max-w-5xl">
-          <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-black sm:text-4xl md:text-5xl">
+          <h2 className="max-w-4xl text-3xl font-medium tracking-tight text-black sm:text-4xl md:text-5xl">
             {title}
           </h2>
 
@@ -36,7 +36,7 @@ export default function CaseStudyImageGrid({
             {groups.map((group) => (
               <div key={group.title}>
                 <div className="max-w-3xl">
-                  <h3 className="text-xl font-semibold tracking-tight text-black sm:text-2xl">
+                  <h3 className="text-xl font-medium tracking-tight text-black sm:text-2xl">
                     {group.title}
                   </h3>
                   <p className="mt-3 text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">

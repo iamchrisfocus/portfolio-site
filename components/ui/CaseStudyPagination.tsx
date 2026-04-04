@@ -31,7 +31,7 @@ function PaginationCard({
     >
       <p className="text-sm font-medium text-neutral-500">{label}</p>
 
-      <h3 className="mt-4 text-2xl font-semibold tracking-tight text-black sm:text-[2rem]">
+      <h3 className="mt-4 text-2xl font-medium tracking-tight text-black sm:text-[2rem]">
         {title}
       </h3>
 

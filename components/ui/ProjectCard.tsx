@@ -24,7 +24,7 @@ export default function ProjectCard({
         {meta}
       </p>
 
-      <h3 className="mt-3 text-2xl font-semibold tracking-tight">
+      <h3 className="mt-3 text-2xl font-medium tracking-tight">
         {title}
       </h3>
 

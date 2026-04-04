@@ -14,14 +14,15 @@ export default function Navbar({ isCaseStudyPage = false }: NavbarProps) {
   const workHref = isCaseStudyPage ? "/#work" : "#work";
   const aboutHref = isCaseStudyPage ? "/#about" : "#about";
   const contactHref = isCaseStudyPage ? "/#contact" : "#contact";
+  const resumeHref = "/seun-fatukasi-resume.pdf";
 
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/80 backdrop-blur">
       <Container className="py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <a href={homeHref} className="text-sm font-semibold tracking-tight">
-              Seun Fatukasi
+            <a href={homeHref} className="text-sm font-medium uppercase tracking-[0.12em]">
+              SEUN FATUKASI
             </a>
 
             {isCaseStudyPage && (
@@ -43,6 +44,19 @@ export default function Navbar({ isCaseStudyPage = false }: NavbarProps) {
             </a>
             <a href={contactHref} className="transition hover:text-black">
               Contact
+            </a>
+            <a
+              href={resumeHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-black"
+            >
+              <span className="inline-flex items-center gap-1">
+                Resume
+                <span aria-hidden="true" className="text-xs">
+                  ↗
+                </span>
+              </span>
             </a>
           </nav>
 
@@ -90,6 +104,20 @@ export default function Navbar({ isCaseStudyPage = false }: NavbarProps) {
                 onClick={() => setMenuOpen(false)}
               >
                 Contact
+              </a>
+              <a
+                href={resumeHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl px-3 py-3 transition hover:bg-neutral-50 hover:text-black"
+                onClick={() => setMenuOpen(false)}
+              >
+                <span className="inline-flex items-center gap-1">
+                  Resume
+                  <span aria-hidden="true" className="text-xs">
+                    ↗
+                  </span>
+                </span>
               </a>
             </nav>
           </div>

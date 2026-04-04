@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "@/components/ui/Container";
 
 export default function Contact() {
@@ -11,11 +11,20 @@ export default function Contact() {
     try {
       await navigator.clipboard.writeText(email);
       setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
     } catch (error) {
       console.error("Failed to copy email:", error);
     }
   }
+
+  useEffect(() => {
+    if (!copied) return;
+
+    const timer = setTimeout(() => {
+      setCopied(false);
+    }, 1400);
+
+    return () => clearTimeout(timer);
+  }, [copied]);
 
   return (
     <section id="contact" className="border-t border-neutral-200 bg-white py-24">
@@ -25,7 +34,7 @@ export default function Contact() {
             Contact
           </p>
 
-          <h2 className="max-w-3xl text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl">
+          <h2 className="max-w-2xl text-2xl font-medium tracking-tight sm:text-3xl">
             Open to product design roles, freelance work, and thoughtful collaboration.
           </h2>
 
@@ -48,30 +57,50 @@ export default function Contact() {
                   {email}
                 </a>
 
-                <button
-                  type="button"
-                  onClick={handleCopy}
-                  aria-label="Copy email address"
-                  title="Copy email"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-neutral-300 text-black transition hover:border-neutral-900"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    className="h-4 w-4"
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={handleCopy}
+                    aria-label={copied ? "Email copied" : "Copy email address"}
+                    title={copied ? "Copied" : "Copy email"}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-neutral-300 text-black transition hover:border-neutral-900"
                   >
-                    <rect x="9" y="9" width="10" height="10" rx="2" />
-                    <path d="M5 15V7a2 2 0 0 1 2-2h8" />
-                  </svg>
-                </button>
-              </div>
+                    {copied ? (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.9"
+                        className="h-4 w-4"
+                      >
+                        <path d="M5 12.5 9.5 17 19 7.5" />
+                      </svg>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        className="h-4 w-4"
+                      >
+                        <rect x="9" y="9" width="10" height="10" rx="2" />
+                        <path d="M5 15V7a2 2 0 0 1 2-2h8" />
+                      </svg>
+                    )}
+                  </button>
 
-              {copied && (
-                <p className="mt-3 text-sm text-neutral-500">Copied</p>
-              )}
+                  <span
+                    aria-live="polite"
+                    className={`text-sm text-neutral-500 transition-opacity duration-200 ${
+                      copied ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    Copied
+                  </span>
+                </div>
+              </div>
             </div>
 
             <div className="rounded-[1.75rem] border border-neutral-200 bg-white p-6">

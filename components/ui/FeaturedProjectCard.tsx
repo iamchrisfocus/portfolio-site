@@ -23,7 +23,7 @@ export default function FeaturedProjectCard({
           {meta}
         </p>
 
-        <h3 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h3 className="mt-3 text-3xl font-medium tracking-tight sm:text-4xl">
           {title}
         </h3>
 

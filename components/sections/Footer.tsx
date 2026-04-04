@@ -15,7 +15,7 @@ export default function Footer({ isCaseStudyPage = false }: FooterProps) {
         <div>
           <p className="text-sm font-medium text-black">Seun Fatukasi</p>
           <p className="mt-1 text-sm text-neutral-600">
-              Product designer focused on clarity, structure, and usable digital experiences.
+            Product designer focused on clarity, structure, and usable digital experiences.
           </p>
         </div>
 
@@ -32,7 +32,9 @@ export default function Footer({ isCaseStudyPage = false }: FooterProps) {
             </a>
           </div>
 
-          <p className="text-sm text-neutral-500">© 2026 Seun Fatukasi. Built with Next.js and Vercel.</p>
+          <p className="text-sm text-neutral-500">
+            © 2026. Vibe-coded by me.
+          </p>
         </div>
       </Container>
     </footer>

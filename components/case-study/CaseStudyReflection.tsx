@@ -18,14 +18,14 @@ export default function CaseStudyReflection({
     <section className="border-b border-neutral-200 bg-white py-16 sm:py-20">
       <Container>
         <div className="max-w-5xl">
-          <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-black sm:text-4xl md:text-5xl">
+          <h2 className="max-w-4xl text-3xl font-medium tracking-tight text-black sm:text-4xl md:text-5xl">
             {title}
           </h2>
 
           <div className="mt-8 space-y-8">
             {items.map((item) => (
               <div key={item.title} className="max-w-3xl">
-                <h3 className="text-lg font-semibold tracking-tight text-black sm:text-xl">
+                <h3 className="text-lg font-medium tracking-tight text-black sm:text-xl">
                   {item.title}
                 </h3>
 
