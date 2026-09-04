@@ -3,71 +3,79 @@ import Container from "@/components/ui/Container";
 
 export default function About() {
   return (
-    <section id="about" className="border-t border-neutral-200 bg-white py-24">
+    <section id="about" className="border-t border-border bg-background py-24">
       <Container>
-        <div className="max-w-5xl">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
-            About
-          </p>
-
-          <h2 className="max-w-3xl text-2xl font-medium tracking-tight sm:text-3xl">
-            Designing clearer products for real people, practical business goals, and better decisions.
-          </h2>
-
-          <div className="mt-8 max-w-3xl space-y-6 text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">
-            <p>
-              I’m Oluwaseun Fatukasi, a product designer focused on clarity,
-              structure, and decision-making. I care about designing
-              experiences that help people move with less friction and more
-              confidence, especially in products where complexity can easily
-              get in the way.
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
+          {/* Text */}
+          <div className="lg:col-span-7">
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-muted">
+              About
             </p>
 
-            <p>
-              My work sits at the intersection of user needs, business goals,
-              and practical execution. I enjoy simplifying flows, sharpening
-              product direction, and shaping interfaces that feel calm, useful,
-              and considered rather than noisy for the sake of it.
-            </p>
+            <h2 className="max-w-2xl text-3xl font-medium leading-tight tracking-tight text-foreground sm:text-4xl">
+              I design products that make complex things easier to understand
+              and use.
+            </h2>
 
-            <p>
-              Outside design, I’m drawn to communication just as much as I am
-              to product thinking, whether that is speaking on stage, working
-              behind a microphone, or simply paying attention to how people
-              connect, listen, and respond. That mix of structure and human
-              awareness shapes the way I design.
-            </p>
+            <div className="mt-8 max-w-xl space-y-5 text-base leading-7 text-muted sm:text-lg sm:leading-8">
+              <p>
+                I’m Oluwaseun Fatukasi, a product designer focused on turning
+                complex problems into clear, useful experiences. I care about
+                understanding what people need, what businesses are trying to
+                achieve, and where the two can meet.
+              </p>
+
+              <p>
+                My approach is shaped by experience beyond product design.
+                I’ve worked across business, customer-facing roles, and
+                communication, which has taught me to listen closely, ask
+                better questions, and communicate ideas clearly.
+              </p>
+
+              <p>
+                Whether I’m designing a product, speaking on stage, behind
+                a microphone, or sharing a meal, I’m interested in the same thing:{" "}
+                <span className="text-foreground">
+                  understanding people and making things easier to navigate.
+                </span>
+              </p>
+            </div>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <div className="aspect-square overflow-hidden rounded-[1.75rem] border border-neutral-200 bg-neutral-50">
-              <Image
-                src="/images/about/about-hosting.webp"
-                alt="Oluwaseun Fatukasi hosting on stage"
-                width={1200}
-                height={1200}
-                className="h-full w-full object-cover object-top"
-              />
-            </div>
+          {/* Photos */}
+          <div className="lg:col-span-5">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {/* Main photo */}
+              <div className="col-span-2 aspect-[4/3] overflow-hidden rounded-xl border border-border bg-card">
+                <Image
+                  src="/images/about/about-hosting.webp"
+                  alt="Oluwaseun Fatukasi hosting on stage"
+                  width={600}
+                  height={450}
+                  className="h-full w-full object-cover object-top"
+                />
+              </div>
 
-            <div className="aspect-square overflow-hidden rounded-[1.75rem] border border-neutral-200 bg-neutral-50">
-              <Image
-                src="/images/about/about-radio.webp"
-                alt="Oluwaseun Fatukasi in a radio studio"
-                width={1200}
-                height={1200}
-                className="h-full w-full object-cover object-top"
-              />
-            </div>
+              {/* Supporting photos */}
+              <div className="aspect-square overflow-hidden rounded-xl border border-border bg-card">
+                <Image
+                  src="/images/about/about-radio.webp"
+                  alt="Oluwaseun Fatukasi in a radio studio"
+                  width={300}
+                  height={300}
+                  className="h-full w-full object-cover object-top"
+                />
+              </div>
 
-            <div className="aspect-square overflow-hidden rounded-[1.75rem] border border-neutral-200 bg-neutral-50">
-              <Image
-                src="/images/about/about-lifestyle-2.webp"
-                alt="Oluwaseun Fatukasi in a candid lifestyle setting"
-                width={1200}
-                height={1200}
-                className="h-full w-full object-cover object-top"
-              />
+              <div className="aspect-square overflow-hidden rounded-xl border border-border bg-card">
+                <Image
+                  src="/images/about/about-lifestyle-2.webp"
+                  alt="Oluwaseun Fatukasi in a candid lifestyle setting"
+                  width={300}
+                  height={300}
+                  className="h-full w-full object-cover object-top"
+                />
+              </div>
             </div>
           </div>
         </div>

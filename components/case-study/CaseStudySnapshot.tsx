@@ -15,24 +15,28 @@ export default function CaseStudySnapshot({
   items,
 }: CaseStudySnapshotProps) {
   return (
-    <section className="border-b border-neutral-200 bg-white py-16 sm:py-20">
+    <section className="border-b border-border bg-background py-16 sm:py-20">
       <Container>
         <div className="max-w-5xl">
-          <h2 className="text-2xl font-medium tracking-tight text-black sm:text-3xl">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-accent">
+            At a glance
+          </p>
+
+          <h2 className="text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
             {title}
           </h2>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
             {items.map((item) => (
               <div
                 key={item.label}
-                className="rounded-[1.5rem] border border-neutral-200 bg-white p-6"
+                className="rounded-[1.5rem] border border-border bg-card p-6"
               >
-                <p className="text-sm font-medium uppercase tracking-[0.16em] text-neutral-500">
+                <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted">
                   {item.label}
                 </p>
 
-                <p className="mt-4 text-base leading-7 text-neutral-700">
+                <p className="mt-4 text-base leading-7 text-foreground">
                   {item.value}
                 </p>
               </div>

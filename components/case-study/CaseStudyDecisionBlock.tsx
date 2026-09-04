@@ -37,64 +37,74 @@ export default function CaseStudyDecisionBlock({
   images = [],
 }: CaseStudyDecisionBlockProps) {
   return (
-    <section className="border-b border-neutral-200 bg-white py-16 sm:py-20">
+    <section className="border-b border-border bg-background py-16 sm:py-20 lg:py-24">
       <Container>
         <div className="max-w-5xl">
-          <h2 className="max-w-4xl text-2xl font-medium tracking-tight text-black sm:text-3xl md:text-4xl">
-            {title}
-          </h2>
+          <div className="max-w-4xl">
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-accent">
+              Key decision
+            </p>
 
-          <div className="mt-8 max-w-3xl space-y-8 text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">
+            <h2 className="text-3xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+              {title.replace(/^Key decision \d+ — /, "")}
+            </h2>
+          </div>
+
+          <div className="mt-10 max-w-3xl space-y-10 text-base leading-7 text-muted sm:text-lg sm:leading-8">
             {intro ? <div>{intro}</div> : null}
 
             {problemBody ? (
               <div>
-                <h3 className="text-lg font-medium tracking-tight text-black sm:text-xl">
+                <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-foreground">
                   {problemTitle}
                 </h3>
+
                 <div className="mt-3 space-y-5">{problemBody}</div>
               </div>
             ) : null}
 
             {explorationBody ? (
               <div>
-                <h3 className="text-lg font-medium tracking-tight text-black sm:text-xl">
+                <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-foreground">
                   {explorationTitle}
                 </h3>
+
                 <div className="mt-3 space-y-5">{explorationBody}</div>
               </div>
             ) : null}
 
             {decisionBody ? (
               <div>
-                <h3 className="text-lg font-medium tracking-tight text-black sm:text-xl">
+                <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-foreground">
                   {decisionTitle}
                 </h3>
+
                 <div className="mt-3 space-y-5">{decisionBody}</div>
               </div>
             ) : null}
 
             {impactBody ? (
               <div>
-                <h3 className="text-lg font-medium tracking-tight text-black sm:text-xl">
+                <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-foreground">
                   {impactTitle}
                 </h3>
+
                 <div className="mt-3 space-y-5">{impactBody}</div>
               </div>
             ) : null}
           </div>
 
           {images.length > 0 ? (
-            <div className="mt-10 space-y-10">
+            <div className="mt-12 space-y-12">
               {images.map((image) => (
                 <div key={image.src}>
                   {image.heading ? (
-                    <h3 className="mb-4 text-lg font-medium tracking-tight text-black sm:text-xl">
+                    <h3 className="mb-4 text-sm font-medium uppercase tracking-[0.16em] text-muted">
                       {image.heading}
                     </h3>
                   ) : null}
 
-                  <figure className="overflow-hidden rounded-[1.75rem] border border-neutral-200 bg-neutral-50">
+                  <figure className="overflow-hidden rounded-[1.5rem] border border-border bg-card">
                     <Image
                       src={image.src}
                       alt={image.alt}
@@ -102,7 +112,8 @@ export default function CaseStudyDecisionBlock({
                       height={1200}
                       className="h-auto w-full"
                     />
-                    <figcaption className="border-t border-neutral-200 bg-white px-5 py-4 text-sm leading-6 text-neutral-600 sm:px-6">
+
+                    <figcaption className="border-t border-border px-5 py-4 text-sm leading-6 text-muted sm:px-6">
                       {image.caption}
                     </figcaption>
                   </figure>

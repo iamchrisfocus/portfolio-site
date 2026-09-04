@@ -13,10 +13,10 @@ type MetaItemProps = {
 function MetaItem({ label, value }: MetaItemProps) {
   return (
     <div className="space-y-2">
-      <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-500">
+      <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
         {label}
       </p>
-      <p className="text-sm leading-6 text-neutral-800">{value}</p>
+      <p className="text-sm leading-6 text-foreground">{value}</p>
     </div>
   );
 }
@@ -41,23 +41,23 @@ function Section({
   return (
     <section
       id={id}
-      className={`border-b border-neutral-200 bg-white py-16 sm:py-20 ${className}`}
+      className={`border-b border-border bg-background py-16 sm:py-20 ${className}`}
     >
       <Container>
         <div className="max-w-6xl">
           {eyebrow ? (
-            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-accent">
               {eyebrow}
             </p>
           ) : null}
 
           <div className="max-w-3xl">
-            <h2 className="text-3xl font-medium tracking-tight text-black sm:text-4xl md:text-5xl">
+            <h2 className="text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl">
               {title}
             </h2>
 
             {intro ? (
-              <div className="mt-5 space-y-5 text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">
+              <div className="mt-5 space-y-5 text-base leading-7 text-muted sm:text-lg sm:leading-8">
                 {intro}
               </div>
             ) : null}
@@ -89,7 +89,7 @@ function ImageCard({
 }: ImageCardProps) {
   return (
     <figure
-      className={`overflow-hidden rounded-[1.75rem] border border-neutral-200 bg-neutral-50 ${className}`}
+      className={`overflow-hidden rounded-[1.75rem] border border-border bg-card ${className}`}
     >
       <Image
         src={src}
@@ -100,7 +100,7 @@ function ImageCard({
         className={`block h-auto w-full ${imageClassName}`}
       />
       {caption ? (
-        <figcaption className="border-t border-neutral-200 bg-white px-5 py-4 text-sm leading-6 text-neutral-600 sm:px-6">
+        <figcaption className="border-t border-border bg-background px-5 py-4 text-sm leading-6 text-muted sm:px-6">
           {caption}
         </figcaption>
       ) : null}
@@ -115,9 +115,11 @@ type ProblemCardProps = {
 
 function ProblemCard({ title, body }: ProblemCardProps) {
   return (
-    <div className="rounded-[1.5rem] border border-neutral-200 bg-white p-6">
-      <h3 className="text-lg font-medium tracking-tight text-black">{title}</h3>
-      <p className="mt-3 text-base leading-7 text-neutral-600">{body}</p>
+    <div className="rounded-[1.5rem] border border-border bg-card p-6">
+      <h3 className="text-lg font-medium tracking-tight text-foreground">
+        {title}
+      </h3>
+      <p className="mt-3 text-base leading-7 text-muted">{body}</p>
     </div>
   );
 }
@@ -129,9 +131,11 @@ type DecisionCardProps = {
 
 function DecisionCard({ title, body }: DecisionCardProps) {
   return (
-    <div className="rounded-[1.5rem] border border-neutral-200 bg-white p-6">
-      <h3 className="text-lg font-medium tracking-tight text-black">{title}</h3>
-      <p className="mt-3 text-base leading-7 text-neutral-600">{body}</p>
+    <div className="rounded-[1.5rem] border border-border bg-card p-6">
+      <h3 className="text-lg font-medium tracking-tight text-foreground">
+        {title}
+      </h3>
+      <p className="mt-3 text-base leading-7 text-muted">{body}</p>
     </div>
   );
 }
@@ -143,9 +147,11 @@ type ValueCardProps = {
 
 function ValueCard({ title, body }: ValueCardProps) {
   return (
-    <div className="rounded-[1.5rem] border border-neutral-200 bg-white p-6">
-      <h3 className="text-base font-medium tracking-tight text-black">{title}</h3>
-      <p className="mt-3 text-base leading-7 text-neutral-600">{body}</p>
+    <div className="rounded-[1.5rem] border border-border bg-card p-6">
+      <h3 className="text-base font-medium tracking-tight text-foreground">
+        {title}
+      </h3>
+      <p className="mt-3 text-base leading-7 text-muted">{body}</p>
     </div>
   );
 }
@@ -157,11 +163,11 @@ type ValidationItemProps = {
 
 function ValidationItem({ index, text }: ValidationItemProps) {
   return (
-    <div className="grid gap-4 border-t border-neutral-200 py-5 sm:grid-cols-[72px_minmax(0,1fr)] sm:gap-6">
-      <p className="text-sm font-medium uppercase tracking-[0.16em] text-neutral-400">
+    <div className="grid gap-4 border-t border-border py-5 sm:grid-cols-[72px_minmax(0,1fr)] sm:gap-6">
+      <p className="text-sm font-medium uppercase tracking-[0.16em] text-muted">
         {index}
       </p>
-      <p className="text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">
+      <p className="text-base leading-7 text-muted sm:text-lg sm:leading-8">
         {text}
       </p>
     </div>
@@ -178,26 +184,26 @@ export default function SplitSettlePage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white text-black">
+    <main className="min-h-screen bg-background text-foreground">
       <Navbar isCaseStudyPage />
 
-      <section className="border-b border-neutral-200 bg-white py-20 sm:py-24">
+      <section className="border-b border-border bg-background py-20 sm:py-24">
         <Container>
           <div className="grid gap-12 xl:grid-cols-[minmax(0,0.96fr)_minmax(520px,1.04fr)] xl:items-start">
             <div className="max-w-[40rem]">
-              <p className="mb-5 text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
+              <p className="mb-5 text-sm font-medium uppercase tracking-[0.2em] text-accent">
                 Concept case study
               </p>
 
-              <h1 className="max-w-[11ch] text-5xl font-medium tracking-tight text-black sm:text-6xl md:text-7xl">
+              <h1 className="max-w-[11ch] text-5xl font-medium tracking-tight text-foreground sm:text-6xl md:text-7xl">
                 Split &amp; Settle
               </h1>
 
-              <p className="mt-6 max-w-[25ch] text-2xl leading-[1.35] text-neutral-800 sm:text-[2rem]">
+              <p className="mt-6 max-w-[25ch] text-2xl leading-[1.35] text-foreground sm:text-[2rem]">
                 Designing a native group expense feature for OPay
               </p>
 
-              <div className="mt-10 max-w-[34rem] space-y-6 text-lg leading-8 text-neutral-600">
+              <div className="mt-10 max-w-[34rem] space-y-6 text-lg leading-8 text-muted">
                 <p>
                   Split &amp; Settle is a concept for helping friends,
                   roommates, and small groups track shared expenses, see who
@@ -208,7 +214,7 @@ export default function SplitSettlePage() {
             </div>
 
             <div className="xl:pt-1">
-              <div className="overflow-hidden rounded-[2.25rem] border border-neutral-200 bg-[#F2F2F2]">
+              <div className="overflow-hidden rounded-[2.25rem] border border-border bg-card">
                 <Image
                   src="/images/split-settle/split-settle-hero-composite.webp"
                   alt="Split & Settle hero composite showing the OPay group expense concept screens"
@@ -221,7 +227,7 @@ export default function SplitSettlePage() {
             </div>
           </div>
 
-          <div className="mt-12 border-t border-neutral-200 pt-8">
+          <div className="mt-12 border-t border-border pt-8">
             <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2 xl:grid-cols-4">
               <MetaItem label="Role" value="Product Designer" />
               <MetaItem
@@ -243,28 +249,30 @@ export default function SplitSettlePage() {
         intro={
           <>
             <p>
-              As of 2025 OPay is one of Nigeria’s largest fintech platforms: a mobile wallet used for
-              transfers, bill payments, cards, merchant payments, and everyday money
-              movement at scale. The company says it serves 50M+ users and 1M+
-              merchants, which makes it the kind of product where a shared-expense
-              feature could matter in real daily life, not just as a nice idea.
+              As of 2025 OPay is one of Nigeria’s largest fintech platforms: a
+              mobile wallet used for transfers, bill payments, cards, merchant
+              payments, and everyday money movement at scale. The company says
+              it serves 50M+ users and 1M+ merchants, which makes it the kind
+              of product where a shared-expense feature could matter in real
+              daily life, not just as a nice idea.
             </p>
             <p>
               People already use payment apps to move money quickly, but shared
-              expenses still tend to break outside the product. A group dinner, rent
-              contribution, house bill, or weekend hangout usually becomes a messy mix
-              of chat messages, rough calculations, and delayed transfers.
+              expenses still tend to break outside the product. A group dinner,
+              rent contribution, house bill, or weekend hangout usually becomes
+              a messy mix of chat messages, rough calculations, and delayed
+              transfers.
             </p>
             <p>
-              That gap matters. The payment happens in the wallet, but the coordination
-              happens elsewhere.
+              That gap matters. The payment happens in the wallet, but the
+              coordination happens elsewhere.
             </p>
             <p>
-              For OPay, that creates a product opportunity: bring expense tracking, split 
-              logic, reminders, and settlement into the same environment users already
-              trust to hold and move money. Instead of treating bill splitting as an 
-              external habit, Split &amp; Settle turns it into a native part of the wallet 
-              experience.
+              For OPay, that creates a product opportunity: bring expense
+              tracking, split logic, reminders, and settlement into the same
+              environment users already trust to hold and move money. Instead
+              of treating bill splitting as an external habit, Split &amp;
+              Settle turns it into a native part of the wallet experience.
             </p>
           </>
         }
@@ -272,7 +280,9 @@ export default function SplitSettlePage() {
 
       <Section
         title="The problem"
-        intro={<p>Splitting expenses sounds simple until real life makes it messy.</p>}
+        intro={
+          <p>Splitting expenses sounds simple until real life makes it messy.</p>
+        }
       >
         <div className="grid gap-5 sm:grid-cols-2">
           <ProblemCard
@@ -437,7 +447,7 @@ export default function SplitSettlePage() {
       >
         <div className="space-y-10">
           <div className="mx-auto w-full max-w-[820px]">
-            <p className="mb-4 text-base font-medium uppercase tracking-[0.16em] text-neutral-500">
+            <p className="mb-4 text-base font-medium uppercase tracking-[0.16em] text-muted">
               Equal split
             </p>
             <ImageCard
@@ -447,7 +457,7 @@ export default function SplitSettlePage() {
           </div>
 
           <div className="mx-auto w-full max-w-[820px]">
-            <p className="mb-4 text-base font-medium uppercase tracking-[0.16em] text-neutral-500">
+            <p className="mb-4 text-base font-medium uppercase tracking-[0.16em] text-muted">
               Custom split
             </p>
             <ImageCard
@@ -468,9 +478,9 @@ export default function SplitSettlePage() {
             </p>
             <p>
               I designed the live balance view to answer that clearly. Instead
-              of burying people in transaction history, the interface shows what
-              I owe, what I am owed, who has paid, who is still pending, and
-              what action is available now.
+              of burying people in transaction history, the interface shows
+              what I owe, what I am owed, who has paid, who is still pending,
+              and what action is available now.
             </p>
           </>
         }
@@ -489,8 +499,8 @@ export default function SplitSettlePage() {
           <>
             <p>
               The split flow should not feel complete the moment an expense is
-              entered. Users still need to review, send, and understand that the
-              expense is now active.
+              entered. Users still need to review, send, and understand that
+              the expense is now active.
             </p>
             <p>
               I used summary and confirmation states to make that transition
@@ -591,15 +601,16 @@ export default function SplitSettlePage() {
         </div>
       </Section>
 
-      <section className="border-b border-neutral-200 bg-white py-16 sm:py-20">
+      <section className="border-b border-border bg-background py-16 sm:py-20">
         <Container>
           <div className="max-w-6xl">
             <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.9fr)_minmax(0,1.4fr)] lg:gap-16">
               <div className="max-w-md">
-                <h2 className="text-3xl font-medium tracking-tight text-black sm:text-4xl md:text-5xl">
+                <h2 className="text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl">
                   What I’d validate next
                 </h2>
-                <div className="mt-5 space-y-5 text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">
+
+                <div className="mt-5 space-y-5 text-base leading-7 text-muted sm:text-lg sm:leading-8">
                   <p>
                     Because this was an assessment concept, the next step would
                     be validation, not shipping everything at once.
@@ -611,7 +622,7 @@ export default function SplitSettlePage() {
                 </div>
               </div>
 
-              <div className="border-b border-neutral-200">
+              <div className="border-b border-border">
                 {validationQuestions.map((item, index) => (
                   <ValidationItem
                     key={item}
@@ -646,7 +657,7 @@ export default function SplitSettlePage() {
         className="border-b-0"
       />
 
-      <section className="bg-white pb-20 pt-4 sm:pb-24">
+      <section className="bg-background pb-20 pt-4 sm:pb-24">
         <Container>
           <CaseStudyPagination
             previous={{ title: "HireCleaner", href: "/work/hirecleaner" }}

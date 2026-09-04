@@ -29,68 +29,76 @@ export default function CaseStudyHero({
   skipLabel,
 }: CaseStudyHeroProps) {
   return (
-    <section className="border-b border-neutral-200 bg-white py-20 sm:py-24">
+    <section className="border-b border-border bg-background py-20 sm:py-28">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
           <div>
-            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
+            <p className="mb-5 text-sm font-medium uppercase tracking-[0.2em] text-accent">
               {eyebrow}
             </p>
 
-            <h1 className="max-w-[14ch] text-4xl font-medium tracking-tight text-black sm:text-5xl md:text-6xl">
+            <h1 className="text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-[3.75rem]">
               {title}
             </h1>
 
-            <p className="mt-6 max-w-2xl text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">
+            <p className="mt-6 max-w-xl text-lg leading-8 text-muted">
               {subtitle}
             </p>
 
-            <dl className="mt-10 grid gap-x-8 gap-y-6 sm:grid-cols-2">
+            <div className="mt-10 grid gap-6 border-t border-border pt-8 sm:grid-cols-2">
               <div>
-                <dt className="text-sm font-medium uppercase tracking-[0.16em] text-neutral-500">
+                <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted">
                   Role
-                </dt>
-                <dd className="mt-2 text-base text-black">{role}</dd>
+                </p>
+                <p className="mt-2 text-sm leading-6 text-foreground">
+                  {role}
+                </p>
               </div>
 
               <div>
-                <dt className="text-sm font-medium uppercase tracking-[0.16em] text-neutral-500">
+                <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted">
                   Platform
-                </dt>
-                <dd className="mt-2 text-base text-black">{platform}</dd>
+                </p>
+                <p className="mt-2 text-sm leading-6 text-foreground">
+                  {platform}
+                </p>
               </div>
 
               <div>
-                <dt className="text-sm font-medium uppercase tracking-[0.16em] text-neutral-500">
+                <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted">
                   Scope
-                </dt>
-                <dd className="mt-2 text-base text-black">{scope}</dd>
+                </p>
+                <p className="mt-2 text-sm leading-6 text-foreground">
+                  {scope}
+                </p>
               </div>
 
               <div>
-                <dt className="text-sm font-medium uppercase tracking-[0.16em] text-neutral-500">
+                <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted">
                   Team
-                </dt>
-                <dd className="mt-2 text-base text-black">{team}</dd>
+                </p>
+                <p className="mt-2 text-sm leading-6 text-foreground">
+                  {team}
+                </p>
               </div>
-            </dl>
+            </div>
 
-            {skipHref && skipLabel ? (
+            {skipHref && (
               <a
                 href={skipHref}
-                className="mt-8 inline-flex text-sm font-medium text-black underline underline-offset-4 transition hover:text-neutral-600"
+                className="mt-10 inline-flex text-sm font-medium text-foreground underline decoration-border underline-offset-4 transition hover:decoration-foreground"
               >
-                {skipLabel}
+                {skipLabel ?? "Skip ahead"} <span className="ml-1">↓</span>
               </a>
-            ) : null}
+            )}
           </div>
 
-          <div className="overflow-hidden rounded-[2rem] border border-neutral-200 bg-neutral-50">
+          <div className="overflow-hidden rounded-[1.5rem] border border-border bg-card">
             <Image
               src={imageSrc}
               alt={imageAlt}
               width={1600}
-              height={1200}
+              height={1100}
               className="h-auto w-full"
               priority
             />

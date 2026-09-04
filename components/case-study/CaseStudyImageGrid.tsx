@@ -25,30 +25,38 @@ export default function CaseStudyImageGrid({
   groups,
 }: CaseStudyImageGridProps) {
   return (
-    <section id={id} className="border-b border-neutral-200 bg-white py-16 sm:py-20">
+    <section
+      id={id}
+      className="border-b border-border bg-background py-16 sm:py-20 lg:py-24"
+    >
       <Container>
         <div className="max-w-5xl">
-          <h2 className="max-w-4xl text-3xl font-medium tracking-tight text-black sm:text-4xl md:text-5xl">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-accent">
+            Showcase
+          </p>
+
+          <h2 className="max-w-4xl text-3xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-4xl md:text-5xl">
             {title}
           </h2>
 
-          <div className="mt-10 space-y-12">
+          <div className="mt-12 space-y-16">
             {groups.map((group) => (
               <div key={group.title}>
                 <div className="max-w-3xl">
-                  <h3 className="text-xl font-medium tracking-tight text-black sm:text-2xl">
+                  <h3 className="text-xl font-medium tracking-tight text-foreground sm:text-2xl">
                     {group.title}
                   </h3>
-                  <p className="mt-3 text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">
+
+                  <p className="mt-3 text-base leading-7 text-muted sm:text-lg sm:leading-8">
                     {group.description}
                   </p>
                 </div>
 
-                <div className="mt-6 grid gap-6 md:grid-cols-2">
+                <div className="mt-7 grid gap-6 md:grid-cols-2">
                   {group.images.map((image) => (
                     <figure
                       key={image.src}
-                      className="overflow-hidden rounded-[1.75rem] border border-neutral-200 bg-neutral-50"
+                      className="overflow-hidden rounded-[1.5rem] border border-border bg-card"
                     >
                       <Image
                         src={image.src}
@@ -57,7 +65,8 @@ export default function CaseStudyImageGrid({
                         height={1200}
                         className="h-auto w-full"
                       />
-                      <figcaption className="border-t border-neutral-200 bg-white px-5 py-4 text-sm leading-6 text-neutral-600 sm:px-6">
+
+                      <figcaption className="border-t border-border px-5 py-4 text-sm leading-6 text-muted sm:px-6">
                         {image.caption}
                       </figcaption>
                     </figure>

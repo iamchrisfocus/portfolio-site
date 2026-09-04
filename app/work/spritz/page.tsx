@@ -13,7 +13,7 @@ import Container from "@/components/ui/Container";
 
 export default function SpritzPage() {
   return (
-    <main className="min-h-screen bg-white text-black">
+    <main className="min-h-screen bg-background text-foreground">
       <Navbar isCaseStudyPage />
 
       <CaseStudyHero
@@ -503,11 +503,11 @@ export default function SpritzPage() {
         </p>
 
         <div className="pt-4">
-          <div className="rounded-[1.75rem] border border-neutral-200 bg-neutral-50 px-6 py-8 sm:px-8 sm:py-10">
-            <p className="text-5xl font-medium tracking-tight text-black sm:text-6xl md:text-7xl">
+          <div className="rounded-[1.75rem] border border-border bg-card px-6 py-8 sm:px-8 sm:py-10">
+            <p className="text-5xl font-medium tracking-tight text-foreground sm:text-6xl md:text-7xl">
               200+
             </p>
-            <p className="mt-3 max-w-md text-sm uppercase tracking-[0.16em] text-neutral-500">
+            <p className="mt-3 max-w-md text-sm uppercase tracking-[0.16em] text-muted">
               Screens handed off across the redesigned workflow set
             </p>
           </div>
@@ -556,7 +556,7 @@ export default function SpritzPage() {
         ]}
       />
 
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-background py-10 sm:py-12">
         <Container>
           <CaseStudyPagination
             next={{ title: "HireCleaner", href: "/work/hirecleaner" }}

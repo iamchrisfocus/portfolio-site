@@ -12,7 +12,7 @@ import Container from "@/components/ui/Container";
 
 export default function HireCleanerPage() {
   return (
-    <main className="min-h-screen bg-white text-black">
+    <main className="min-h-screen bg-background text-foreground">
       <Navbar isCaseStudyPage />
 
       <section className="bg-white pt-24 sm:pt-28">
@@ -480,7 +480,7 @@ export default function HireCleanerPage() {
         ]}
       />
 
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-background pt-24 sm:pt-28">
         <Container>
           <CaseStudyPagination
             previous={{ title: "Spritz", href: "/work/spritz" }}
