@@ -15,62 +15,65 @@ export default function HireCleanerPage() {
     <main className="min-h-screen bg-background text-foreground">
       <Navbar isCaseStudyPage />
 
-      <section className="bg-white pt-24 sm:pt-28">
+      <section
+        className="pt-24 sm:pt-28"
+        style={{ backgroundColor: "var(--background)" }}
+      >
         <Container>
           <div className="max-w-6xl">
-            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-accent">
               Case Study
             </p>
 
-            <h1 className="max-w-4xl text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl">
+            <h1 className="max-w-4xl text-4xl font-medium tracking-tight text-foreground sm:text-5xl md:text-6xl">
               HireCleaner
             </h1>
 
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-neutral-600 sm:text-xl">
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-muted sm:text-xl">
               Designing a clearer booking experience for a residential cleaning
               service website.
             </p>
 
-            <div className="mt-10 grid gap-6 border-t border-neutral-200 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-10 grid gap-6 border-t border-border pt-8 sm:grid-cols-2 lg:grid-cols-4">
               <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">
+                <p className="text-xs uppercase tracking-[0.18em] text-muted">
                   Role
                 </p>
-                <p className="mt-2 text-sm leading-7 text-neutral-700">
+                <p className="mt-2 text-sm leading-7 text-foreground">
                   Product Designer
                 </p>
               </div>
 
               <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">
+                <p className="text-xs uppercase tracking-[0.18em] text-muted">
                   Platform
                 </p>
-                <p className="mt-2 text-sm leading-7 text-neutral-700">
+                <p className="mt-2 text-sm leading-7 text-foreground">
                   Responsive Web
                 </p>
               </div>
 
               <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">
+                <p className="text-xs uppercase tracking-[0.18em] text-muted">
                   Scope
                 </p>
-                <p className="mt-2 text-sm leading-7 text-neutral-700">
+                <p className="mt-2 text-sm leading-7 text-foreground">
                   Website UX redesign, service-page clarity, estimate flow
                   design, responsive web handoff
                 </p>
               </div>
 
               <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">
+                <p className="text-xs uppercase tracking-[0.18em] text-muted">
                   Team
                 </p>
-                <p className="mt-2 text-sm leading-7 text-neutral-700">
+                <p className="mt-2 text-sm leading-7 text-foreground">
                   Client stakeholder, Product Designer
                 </p>
               </div>
             </div>
 
-            <div className="mt-14 overflow-hidden rounded-[2rem] border border-neutral-200 sm:mt-16">
+            <div className="mt-14 overflow-hidden rounded-[2rem] border border-border sm:mt-16">
               <Image
                 src="/images/hirecleaner/hirecleaner-hero-composite.webp"
                 alt="HireCleaner website hero composite showing the homepage and estimate flow."
@@ -85,7 +88,7 @@ export default function HireCleanerPage() {
             <div className="mt-8">
               <a
                 href="#key-decisions"
-                className="inline-flex text-sm font-medium text-neutral-700 underline decoration-neutral-300 underline-offset-4 transition hover:text-black hover:decoration-neutral-500"
+                className="inline-flex text-sm font-medium text-foreground underline decoration-border underline-offset-4 transition hover:decoration-foreground"
               >
                 Skip to key decisions
               </a>
@@ -409,29 +412,29 @@ export default function HireCleanerPage() {
         </p>
 
         <div className="grid gap-4 pt-4 sm:grid-cols-3">
-          <div className="rounded-[1.75rem] border border-neutral-200 bg-neutral-50 px-6 py-8 sm:px-7">
-            <p className="text-4xl font-medium tracking-tight text-black sm:text-5xl">
+          <div className="rounded-[1.75rem] border border-border bg-card px-6 py-8 sm:px-7">
+            <p className="text-4xl font-medium tracking-tight text-foreground sm:text-5xl">
               1
             </p>
-            <p className="mt-3 text-sm uppercase tracking-[0.16em] text-neutral-500">
+            <p className="mt-3 text-sm uppercase tracking-[0.16em] text-muted">
               Homepage direction
             </p>
           </div>
 
-          <div className="rounded-[1.75rem] border border-neutral-200 bg-neutral-50 px-6 py-8 sm:px-7">
-            <p className="text-4xl font-medium tracking-tight text-black sm:text-5xl">
+          <div className="rounded-[1.75rem] border border-border bg-card px-6 py-8 sm:px-7">
+            <p className="text-4xl font-medium tracking-tight text-foreground sm:text-5xl">
               5
             </p>
-            <p className="mt-3 text-sm uppercase tracking-[0.16em] text-neutral-500">
+            <p className="mt-3 text-sm uppercase tracking-[0.16em] text-muted">
               Core service pages
             </p>
           </div>
 
-          <div className="rounded-[1.75rem] border border-neutral-200 bg-neutral-50 px-6 py-8 sm:px-7">
-            <p className="text-4xl font-medium tracking-tight text-black sm:text-5xl">
+          <div className="rounded-[1.75rem] border border-border bg-card px-6 py-8 sm:px-7">
+            <p className="text-4xl font-medium tracking-tight text-foreground sm:text-5xl">
               4
             </p>
-            <p className="mt-3 text-sm uppercase tracking-[0.16em] text-neutral-500">
+            <p className="mt-3 text-sm uppercase tracking-[0.16em] text-muted">
               Estimate flow stages
             </p>
           </div>
@@ -480,7 +483,10 @@ export default function HireCleanerPage() {
         ]}
       />
 
-      <section className="bg-background pt-24 sm:pt-28">
+      <section
+        className="py-10 sm:py-12"
+        style={{ backgroundColor: "var(--background)" }}
+      >
         <Container>
           <CaseStudyPagination
             previous={{ title: "Spritz", href: "/work/spritz" }}
