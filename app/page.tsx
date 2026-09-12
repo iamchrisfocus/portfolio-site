@@ -3,6 +3,7 @@ import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 import Hero from "@/components/sections/Hero";
 import Navbar from "@/components/sections/Navbar";
+import Recommendation from "@/components/sections/Recommendation";
 import SkillsStrip from "@/components/sections/SkillsStrip";
 import Tools from "@/components/sections/Tools";
 import Work from "@/components/sections/Work";
@@ -16,6 +17,7 @@ export default function Home() {
       <Work />
       <Tools />
       <About />
+      <Recommendation />
       <Contact />
       <Footer />
     </main>
