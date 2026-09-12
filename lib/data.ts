@@ -1,6 +1,6 @@
 export const featuredProject = {
   title: "Spritz",
-  meta: "Flagship Case Study",
+  meta: "Mobile • SaaS • Field Service",
   description:
     "A concept focused on improving flow, usability, and everyday product clarity.",
   href: "/work/spritz",
@@ -8,6 +8,14 @@ export const featuredProject = {
 };
 
 export const supportingProjects = [
+  {
+    title: "Etherally",
+    meta: "Web • Community",
+    description:
+      "A community discovery experience designed to make the Ethereum ecosystem easier to explore, filter, and connect with.",
+    href: "/work/etherally",
+    tone: "web",
+  },
   {
     title: "HireCleaner",
     meta: "Web • SaaS",

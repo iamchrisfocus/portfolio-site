@@ -3,7 +3,6 @@ import Footer from "@/components/sections/Footer";
 import Navbar from "@/components/sections/Navbar";
 import Container from "@/components/ui/Container";
 import CaseStudyPagination from "@/components/ui/CaseStudyPagination";
-import { ReactNode } from "react";
 
 type MetaItemProps = {
   label: string;
@@ -16,6 +15,7 @@ function MetaItem({ label, value }: MetaItemProps) {
       <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
         {label}
       </p>
+
       <p className="text-sm leading-6 text-foreground">{value}</p>
     </div>
   );
@@ -25,8 +25,8 @@ type SectionProps = {
   id?: string;
   eyebrow?: string;
   title: string;
-  intro?: ReactNode;
-  children?: ReactNode;
+  intro?: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 };
 
@@ -75,8 +75,6 @@ type ImageCardProps = {
   alt: string;
   caption?: string;
   priority?: boolean;
-  className?: string;
-  imageClassName?: string;
 };
 
 function ImageCard({
@@ -84,21 +82,19 @@ function ImageCard({
   alt,
   caption,
   priority = false,
-  className = "",
-  imageClassName = "",
 }: ImageCardProps) {
   return (
-    <figure
-      className={`overflow-hidden rounded-[1.75rem] border border-border bg-card ${className}`}
-    >
+    <figure className="overflow-hidden rounded-[1.25rem] border border-border bg-card">
       <Image
         src={src}
         alt={alt}
         width={1600}
         height={1200}
         priority={priority}
-        className={`block h-auto w-full ${imageClassName}`}
+        className="block h-auto w-full"
+        sizes="(max-width: 768px) 100vw, 1200px"
       />
+
       {caption ? (
         <figcaption className="border-t border-border bg-background px-5 py-4 text-sm leading-6 text-muted sm:px-6">
           {caption}
@@ -108,68 +104,79 @@ function ImageCard({
   );
 }
 
-type ProblemCardProps = {
+type DecisionItemProps = {
   title: string;
   body: string;
 };
 
-function ProblemCard({ title, body }: ProblemCardProps) {
+function DecisionItem({ title, body }: DecisionItemProps) {
   return (
-    <div className="rounded-[1.5rem] border border-border bg-card p-6">
+    <div className="space-y-3">
       <h3 className="text-lg font-medium tracking-tight text-foreground">
         {title}
       </h3>
-      <p className="mt-3 text-base leading-7 text-muted">{body}</p>
+
+      <p className="text-base leading-7 text-muted">{body}</p>
     </div>
   );
 }
 
-type DecisionCardProps = {
+type FlowStepProps = {
+  number: string;
   title: string;
-  body: string;
+  description: string;
+  accent?: boolean;
 };
 
-function DecisionCard({ title, body }: DecisionCardProps) {
+function FlowStep({
+  number,
+  title,
+  description,
+  accent = false,
+}: FlowStepProps) {
   return (
-    <div className="rounded-[1.5rem] border border-border bg-card p-6">
-      <h3 className="text-lg font-medium tracking-tight text-foreground">
-        {title}
-      </h3>
-      <p className="mt-3 text-base leading-7 text-muted">{body}</p>
-    </div>
-  );
-}
+    <div
+      className={`min-h-[190px] rounded-[1.25rem] border p-6 ${
+        accent
+          ? "border-foreground/20 bg-foreground text-background"
+          : "border-border bg-card"
+      }`}
+    >
+      <div className="flex items-start justify-between">
+        <span
+          className={`text-xs font-medium ${
+            accent ? "text-background/60" : "text-muted"
+          }`}
+        >
+          {number}
+        </span>
 
-type ValueCardProps = {
-  title: string;
-  body: string;
-};
+        <span
+          className={`text-sm ${
+            accent ? "text-background/60" : "text-muted"
+          }`}
+        >
+          →
+        </span>
+      </div>
 
-function ValueCard({ title, body }: ValueCardProps) {
-  return (
-    <div className="rounded-[1.5rem] border border-border bg-card p-6">
-      <h3 className="text-base font-medium tracking-tight text-foreground">
-        {title}
-      </h3>
-      <p className="mt-3 text-base leading-7 text-muted">{body}</p>
-    </div>
-  );
-}
+      <div className="mt-12">
+        <p
+          className={`text-base font-medium ${
+            accent ? "text-background" : "text-foreground"
+          }`}
+        >
+          {title}
+        </p>
 
-type ValidationItemProps = {
-  index: string;
-  text: string;
-};
-
-function ValidationItem({ index, text }: ValidationItemProps) {
-  return (
-    <div className="grid gap-4 border-t border-border py-5 sm:grid-cols-[72px_minmax(0,1fr)] sm:gap-6">
-      <p className="text-sm font-medium uppercase tracking-[0.16em] text-muted">
-        {index}
-      </p>
-      <p className="text-base leading-7 text-muted sm:text-lg sm:leading-8">
-        {text}
-      </p>
+        <p
+          className={`mt-2 text-sm leading-6 ${
+            accent ? "text-background/70" : "text-muted"
+          }`}
+        >
+          {description}
+        </p>
+      </div>
     </div>
   );
 }
@@ -187,448 +194,470 @@ export default function SplitSettlePage() {
     <main className="min-h-screen bg-background text-foreground">
       <Navbar isCaseStudyPage />
 
-      <section className="border-b border-border bg-background py-20 sm:py-24">
+      {/* HERO */}
+      <section>
         <Container>
-          <div className="grid gap-12 xl:grid-cols-[minmax(0,0.96fr)_minmax(520px,1.04fr)] xl:items-start">
-            <div className="max-w-[40rem]">
+          <div className="py-12 sm:py-16 lg:py-20">
+            <div className="max-w-3xl">
               <p className="mb-5 text-sm font-medium uppercase tracking-[0.2em] text-accent">
-                Concept case study
+                Concept Case Study
               </p>
 
-              <h1 className="max-w-[11ch] text-5xl font-medium tracking-tight text-foreground sm:text-6xl md:text-7xl">
+              <h1 className="max-w-4xl text-5xl font-medium leading-[0.98] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
                 Split &amp; Settle
               </h1>
 
-              <p className="mt-6 max-w-[25ch] text-2xl leading-[1.35] text-foreground sm:text-[2rem]">
-                Designing a native group expense feature for OPay
+              <p className="mt-6 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
+                Designing a native group-expense experience inside OPay.
               </p>
 
-              <div className="mt-10 max-w-[34rem] space-y-6 text-lg leading-8 text-muted">
-                <p>
-                  Split &amp; Settle is a concept for helping friends,
-                  roommates, and small groups track shared expenses, see who
-                  owes what, and settle balances inside OPay instead of
-                  juggling chats, calculators, and manual transfers.
-                </p>
+              <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted">
+                <span>
+                  <strong className="font-medium text-foreground">
+                    Role:
+                  </strong>{" "}
+                  Product Designer
+                </span>
+
+                <span>
+                  <strong className="font-medium text-foreground">
+                    Platform:
+                  </strong>{" "}
+                  Mobile
+                </span>
+
+                <span>
+                  <strong className="font-medium text-foreground">
+                    Type:
+                  </strong>{" "}
+                  Concept / Product design assessment
+                </span>
               </div>
             </div>
 
-            <div className="xl:pt-1">
-              <div className="overflow-hidden rounded-[2.25rem] border border-border bg-card">
-                <Image
-                  src="/images/split-settle/split-settle-hero-composite.webp"
-                  alt="Split & Settle hero composite showing the OPay group expense concept screens"
-                  width={1600}
-                  height={1200}
-                  priority
-                  className="block h-auto w-full"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12 border-t border-border pt-8">
-            <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2 xl:grid-cols-4">
-              <MetaItem label="Role" value="Product Designer" />
-              <MetaItem
-                label="Project type"
-                value="Concept / Product design assessment"
-              />
-              <MetaItem label="Platform" value="Mobile" />
-              <MetaItem
-                label="Scope"
-                value="Product thinking, user flows, core interaction design, UI screens"
+            <div className="mt-12 overflow-hidden rounded-[1.5rem] border border-border bg-card lg:mt-16">
+              <img
+                src="/images/split-settle/case-study-hero.webp"
+                alt="Split & Settle case study shown on the Figma design canvas"
+                loading="eager"
+                className="block h-auto w-full"
               />
             </div>
           </div>
         </Container>
       </section>
 
+      {/* CHALLENGE */}
+      <Section
+        title="The challenge"
+        intro={
+          <p>
+            Shared expenses rarely fail because the maths is difficult. They
+            fail because the coordination is fragmented.
+          </p>
+        }
+      >
+        <div className="grid gap-5 sm:grid-cols-2">
+          <DecisionItem
+            title="Track"
+            body="Who paid, who still owes, and which expense the money was for?"
+          />
+
+          <DecisionItem
+            title="Split"
+            body="How should the cost be divided when contributions are not equal?"
+          />
+
+          <DecisionItem
+            title="Remind"
+            body="How do you follow up without making the interaction feel awkward?"
+          />
+
+          <DecisionItem
+            title="Settle"
+            body="How do you move from an agreed split to an actual payment?"
+          />
+        </div>
+      </Section>
+
+      {/* OPPORTUNITY */}
       <Section
         title="The opportunity"
         intro={
           <>
             <p>
-              As of 2025 OPay is one of Nigeria’s largest fintech platforms: a
-              mobile wallet used for transfers, bill payments, cards, merchant
-              payments, and everyday money movement at scale. The company says
-              it serves 50M+ users and 1M+ merchants, which makes it the kind
-              of product where a shared-expense feature could matter in real
-              daily life, not just as a nice idea.
+              Shared-expense coordination often happens outside the wallet,
+              even when the final payment happens inside it.
             </p>
+
             <p>
-              People already use payment apps to move money quickly, but shared
-              expenses still tend to break outside the product. A group dinner,
-              rent contribution, house bill, or weekend hangout usually becomes
-              a messy mix of chat messages, rough calculations, and delayed
-              transfers.
-            </p>
-            <p>
-              That gap matters. The payment happens in the wallet, but the
-              coordination happens elsewhere.
-            </p>
-            <p>
-              For OPay, that creates a product opportunity: bring expense
-              tracking, split logic, reminders, and settlement into the same
-              environment users already trust to hold and move money. Instead
-              of treating bill splitting as an external habit, Split &amp;
-              Settle turns it into a native part of the wallet experience.
+              The concept was to bring tracking, splitting, reminders, and
+              settlement into the same environment users already use to move
+              money.
             </p>
           </>
         }
       />
 
+      {/* EXPERIENCE */}
       <Section
-        title="The problem"
-        intro={
-          <p>Splitting expenses sounds simple until real life makes it messy.</p>
-        }
-      >
-        <div className="grid gap-5 sm:grid-cols-2">
-          <ProblemCard
-            title="Tracking breaks down"
-            body="People forget who paid, who still owes, and which expense the money was for."
-          />
-          <ProblemCard
-            title="Fair splits take effort"
-            body="Shared costs are not always equal, especially when people contribute differently."
-          />
-          <ProblemCard
-            title="Reminders feel personal"
-            body="Following up for money can quickly become awkward in friend groups and shared households."
-          />
-          <ProblemCard
-            title="Paying is separate from planning"
-            body="The split is often discussed in chat, calculated elsewhere, and settled manually later."
-          />
-        </div>
-      </Section>
-
-      <Section
-        title="The goal"
+        title="The experience"
         intro={
           <p>
-            Design a simple in-wallet experience that helps users create a
-            group, add a shared expense, split it equally or by custom share,
-            track balances clearly, settle instantly through OPay, and send
-            reminders without leaving the flow.
+            The flow keeps the experience focused on one decision at a time.
           </p>
         }
-      />
-
-      <Section
-        title="The solution"
-        intro={
-          <>
-            <p>
-              I designed Split &amp; Settle as a lightweight group expense layer
-              inside OPay. Instead of forcing users to manage shared costs
-              across multiple tools, the feature keeps the full loop in one
-              place: create a group, log an expense, assign shares, track
-              balances, and settle with a tap.
-            </p>
-            <p>The concept focused on four product decisions:</p>
-          </>
-        }
       >
-        <div className="grid gap-5 sm:grid-cols-2">
-          <DecisionCard
-            title="Make group setup quick enough for casual use"
-            body="Reduce admin overhead so users can start a one-off hangout group or a recurring household group without friction."
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <FlowStep
+            number="01"
+            title="Enter"
+            description="Find Split & Settle inside the wallet."
           />
-          <DecisionCard
-            title="Support both equal and uneven split logic"
-            body="Keep the common case fast, while still handling real shared-expense scenarios where contributions differ."
+
+          <FlowStep
+            number="02"
+            title="Set up"
+            description="Create a group and add the people involved."
           />
-          <DecisionCard
-            title="Turn balances into a clear action state"
-            body="Show what is owed, what is pending, and what the user can do next instead of burying that in history."
+
+          <FlowStep
+            number="03"
+            title="Split"
+            description="Divide the expense equally or by custom share."
           />
-          <DecisionCard
-            title="Reduce collection friction with reminders and native payment"
-            body="Let users move from coordination to collection inside the same trusted wallet environment."
+
+          <FlowStep
+            number="04"
+            title="Track"
+            description="See balances, pending payments, and next actions."
+          />
+
+          <FlowStep
+            number="05"
+            title="Settle"
+            description="Move directly from outstanding balance to payment."
+            accent
           />
         </div>
       </Section>
 
+      {/* 01 */}
       <Section
-        title="Start from the wallet people already use"
+        eyebrow="01 — Entry + first use"
+        title="Put the experience where the money already is."
         intro={
-          <>
-            <p>
-              A bill-splitting feature only becomes convenient if it lives where
-              the money already is. Putting Split &amp; Settle inside OPay
-              removes one of the biggest hidden costs in shared expenses:
-              switching between coordination and payment.
-            </p>
-            <p>
-              The feature begins inside OPay’s existing interface, making it
-              feel like an extension of the product rather than a detached
-              mini-app. That matters for trust and adoption. Users do not need
-              to learn a new service just to manage a dinner bill or rent
-              contribution.
-            </p>
-          </>
+          <p>
+            A bill-splitting feature becomes more useful when users do not have
+            to leave the wallet to coordinate the payment.
+          </p>
         }
       >
-        <div className="mx-auto w-full max-w-[820px]">
+        <div className="space-y-8">
           <ImageCard
             src="/images/split-settle/split-settle-finance-entry.webp"
-            alt="Entry point into Split & Settle from the OPay finance area"
+            alt="Split & Settle entry point from the OPay Finance area"
           />
-        </div>
-      </Section>
 
-      <Section
-        title="Design for first-time use"
-        intro={
-          <>
-            <p>
-              The first version of a group expense feature has to do one thing
-              well before anything else: make the product feel understandable
-              from the first screen.
-            </p>
-            <p>
-              I kept the default dashboard lightweight, with a clear empty state
-              and an obvious path to creating a group. The goal was to make the
-              feature feel approachable before any setup had happened.
-            </p>
-          </>
-        }
-      >
-        <div className="mx-auto w-full max-w-[820px]">
+          <div className="max-w-3xl space-y-5">
+            <DecisionItem
+              title="Native entry point"
+              body="Split & Settle starts inside OPay rather than as a separate service."
+            />
+
+            <DecisionItem
+              title="Clear first state"
+              body="The empty dashboard tells a new user what the feature is for and what to do next."
+            />
+
+            <DecisionItem
+              title="Low setup friction"
+              body="Create Group becomes the obvious first action."
+            />
+          </div>
+
           <ImageCard
             src="/images/split-settle/split-settle-empty-dashboard.webp"
-            alt="Empty Split & Settle dashboard showing the first-time use state"
+            alt="Split & Settle empty dashboard first-use state"
           />
         </div>
       </Section>
 
+      {/* 02 */}
       <Section
-        title="Make group setup quick enough for casual use"
+        eyebrow="02 — Group creation"
+        title="Make group setup quick enough for casual use."
         intro={
-          <>
-            <p>
-              Group expense tools often become too heavy too early. If setup
-              feels like admin work, people fall back to chat.
-            </p>
-            <p>
-              To reduce that friction, I kept group creation simple: create a
-              group, name it, add members, and move directly into expense
-              tracking. The intent was to make group creation feel fast enough
-              for both one-off hangouts and recurring household expenses.
-            </p>
-          </>
+          <p>
+            If setup feels like admin work, people fall back to chat. The
+            group-creation flow keeps the overhead low.
+          </p>
         }
       >
         <ImageCard
           src="/images/split-settle/split-settle-group-creation-flow.webp"
-          alt="Split & Settle group creation flow showing create group, add members, and setup states"
+          alt="Split & Settle group creation flow"
         />
-      </Section>
 
-      <Section
-        title="Make split creation flexible without making it confusing"
-        intro={
-          <>
-            <p>
-              Shared expenses are rarely all the same. Some costs should be
-              divided equally. Others need custom allocations based on who
-              participated, who paid upfront, or who consumed more.
-            </p>
-            <p>
-              To handle both cases, I designed the expense flow around two clear
-              modes: equal split for speed, and custom split for real-world
-              flexibility. This lets the common case stay simple without
-              flattening every scenario into the same pattern.
-            </p>
-          </>
-        }
-      >
-        <div className="space-y-10">
-          <div className="mx-auto w-full max-w-[820px]">
-            <p className="mb-4 text-base font-medium uppercase tracking-[0.16em] text-muted">
-              Equal split
-            </p>
-            <ImageCard
-              src="/images/split-settle/split-settle-expense-entry-equal.webp"
-              alt="Equal split expense entry flow for Split & Settle"
-            />
-          </div>
+        <div className="mt-10 grid gap-5 sm:grid-cols-3">
+          <DecisionItem
+            title="Create"
+            body="Give the group a simple identity."
+          />
 
-          <div className="mx-auto w-full max-w-[820px]">
-            <p className="mb-4 text-base font-medium uppercase tracking-[0.16em] text-muted">
-              Custom split
-            </p>
-            <ImageCard
-              src="/images/split-settle/split-settle-expense-entry-custom.webp"
-              alt="Custom split expense entry flow for Split & Settle"
-            />
-          </div>
-        </div>
-      </Section>
+          <DecisionItem
+            title="Add people"
+            body="Search and select the people involved."
+          />
 
-      <Section
-        title="Turn balances into a clear action state"
-        intro={
-          <>
-            <p>
-              Once a bill is created, the most important question becomes
-              simple: what happens next?
-            </p>
-            <p>
-              I designed the live balance view to answer that clearly. Instead
-              of burying people in transaction history, the interface shows
-              what I owe, what I am owed, who has paid, who is still pending,
-              and what action is available now.
-            </p>
-          </>
-        }
-      >
-        <div className="mx-auto w-full max-w-[820px]">
-          <ImageCard
-            src="/images/split-settle/split-settle-balance-action.webp"
-            alt="Live balance action state showing what is owed and next actions"
+          <DecisionItem
+            title="Confirm"
+            body="Review membership before creating the group."
           />
         </div>
       </Section>
 
+      {/* 03 */}
       <Section
-        title="Keep the transition from setup to live expense tracking clear"
-        intro={
-          <>
-            <p>
-              The split flow should not feel complete the moment an expense is
-              entered. Users still need to review, send, and understand that
-              the expense is now active.
-            </p>
-            <p>
-              I used summary and confirmation states to make that transition
-              explicit, so users can move from creating a split to managing a
-              real shared balance without losing context.
-            </p>
-          </>
-        }
-      >
-        <div className="mx-auto w-full max-w-[820px]">
-          <ImageCard
-            src="/images/split-settle/split-settle-summary-states.webp"
-            alt="Summary and confirmation states between split setup and active tracking"
-          />
-        </div>
-      </Section>
-
-      <Section
-        title="Make settlement immediate"
-        intro={
-          <>
-            <p>
-              The concept works best when the final step is not a handoff to
-              another tool.
-            </p>
-            <p>
-              Because Split &amp; Settle is designed for OPay, settlement
-              happens natively through the wallet rails. Once a user sees an
-              outstanding balance, they can move directly into payment, confirm
-              the amount, and complete the transaction without leaving the flow.
-            </p>
-            <p>
-              That keeps the product from stopping at coordination. It closes
-              the loop.
-            </p>
-          </>
-        }
-      >
-        <div className="mx-auto w-full max-w-[820px]">
-          <ImageCard
-            src="/images/split-settle/split-settle-settlement-flow.webp"
-            alt="Settlement flow showing native payment completion inside OPay"
-          />
-        </div>
-      </Section>
-
-      <Section
-        title="Dashboard states"
+        eyebrow="03 — Expense splitting"
+        title="Support equal and uneven splits."
         intro={
           <p>
-            I also explored the product in two distinct dashboard conditions: a
-            default state for first-time or inactive users, and an active state
-            showing ongoing groups and shared expenses. This helped define how
-            the feature should feel both before and after adoption.
+            The common case should be fast, without ignoring the messier cases
+            where contributions differ.
           </p>
         }
       >
-        <div className="mx-auto w-full max-w-[820px]">
-          <ImageCard
-            src="/images/split-settle/split-settle-dashboard-states.webp"
-            alt="Dashboard states showing inactive and active Split & Settle conditions"
+        <div className="space-y-12">
+          <div>
+            <p className="mb-4 text-xs font-medium uppercase tracking-[0.16em] text-muted">
+              Equal split
+            </p>
+
+            <ImageCard
+              src="/images/split-settle/split-settle-expense-entry-equal.webp"
+              alt="Split & Settle equal split expense flow"
+            />
+          </div>
+
+          <div>
+            <p className="mb-4 text-xs font-medium uppercase tracking-[0.16em] text-muted">
+              Custom split
+            </p>
+
+            <ImageCard
+              src="/images/split-settle/split-settle-expense-entry-custom.webp"
+              alt="Split & Settle custom split expense flow"
+            />
+          </div>
+        </div>
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-3">
+          <DecisionItem
+            title="Equal by default"
+            body="Keep the most common scenario quick."
+          />
+
+          <DecisionItem
+            title="Custom when needed"
+            body="Allow different shares without creating another workflow."
+          />
+
+          <DecisionItem
+            title="Review before sending"
+            body="Make the allocation visible before it becomes active."
           />
         </div>
       </Section>
 
+      {/* 04 */}
+      <Section
+        eyebrow="04 — Balances"
+        title="Turn balances into clear actions."
+        intro={
+          <p>
+            Once the split exists, users need an immediate answer to one
+            question: what happens next?
+          </p>
+        }
+      >
+        <div className="space-y-12">
+          <ImageCard
+            src="/images/split-settle/split-settle-balance-action.webp"
+            alt="Split & Settle balance and action state"
+          />
+
+          <ImageCard
+            src="/images/split-settle/split-settle-summary-states.webp"
+            alt="Split & Settle summary and confirmation states"
+          />
+        </div>
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          <DecisionItem
+            title="See the balance"
+            body="Understand what you owe and what you are owed."
+          />
+
+          <DecisionItem
+            title="See who has paid"
+            body="Separate completed and pending contributions."
+          />
+
+          <DecisionItem
+            title="Act immediately"
+            body="Settle or remind from the same context."
+          />
+
+          <DecisionItem
+            title="Keep context"
+            body="Review and confirmation states make the transition into active tracking explicit."
+          />
+        </div>
+      </Section>
+
+      {/* 05 */}
+      <Section
+        eyebrow="05 — Settlement"
+        title="Close the loop inside OPay."
+        intro={
+          <p>
+            The concept should not stop at telling users who owes what. The
+            settlement should happen in the same product.
+          </p>
+        }
+      >
+        <ImageCard
+          src="/images/split-settle/split-settle-settlement-flow.webp"
+          alt="Split & Settle settlement flow and successful payment state"
+        />
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-3">
+          <DecisionItem
+            title="One transition"
+            body="Move directly from balance to payment."
+          />
+
+          <DecisionItem
+            title="Native settlement"
+            body="Payment happens through the wallet."
+          />
+
+          <DecisionItem
+            title="Clear completion"
+            body="The final state confirms the transaction."
+          />
+        </div>
+      </Section>
+
+      {/* FINAL SYSTEM */}
+      <Section
+        eyebrow="Final system"
+        title="The dashboard evolves with use."
+        intro={
+          <p>
+            The experience has to work before adoption and after the user has
+            active groups to manage.
+          </p>
+        }
+      >
+        <ImageCard
+          src="/images/split-settle/split-settle-dashboard-states.webp"
+          alt="Split & Settle inactive and active dashboard states"
+        />
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-3">
+          <DecisionItem
+            title="Before adoption"
+            body="Simple and action-oriented."
+          />
+
+          <DecisionItem
+            title="After adoption"
+            body="Active groups become the main working surface."
+          />
+
+          <DecisionItem
+            title="Same product, new state"
+            body="The dashboard grows with the user's activity."
+          />
+        </div>
+      </Section>
+
+      {/* OUTCOME */}
       <Section
         title="Outcome"
         intro={
           <>
             <p>
-              Although this was a concept project rather than a launched
-              feature, the design points to a clear product value for OPay.
+              This was a concept project rather than a launched feature, so the
+              next step would be validation rather than assuming the design is
+              ready to ship.
             </p>
+
             <p>
-              Split &amp; Settle would help shift shared expenses from
-              fragmented coordination to a single in-wallet flow. Instead of
-              asking users to remember numbers, message people repeatedly, and
-              then initiate a separate payment, the experience keeps the cycle
-              connected: track, split, remind, settle.
+              The concept creates a connected loop:{" "}
+              <strong className="text-foreground">
+                track → split → remind → settle.
+              </strong>
             </p>
-            <p>From a product perspective, that creates value in three ways:</p>
           </>
         }
       >
         <div className="grid gap-5 md:grid-cols-3">
-          <ValueCard
-            title="Solve a recurring everyday money problem"
-            body="It addresses a familiar, repeated coordination issue rather than a rare edge case."
+          <DecisionItem
+            title="Everyday utility"
+            body="Addresses a recurring coordination problem around shared expenses."
           />
-          <ValueCard
-            title="Increase return use beyond solo transfers"
-            body="It gives users a reason to come back to the wallet for shared financial moments, not just one-to-one payments."
+
+          <DecisionItem
+            title="Wallet engagement"
+            body="Creates another reason to return to the wallet beyond individual transfers."
           />
-          <ValueCard
-            title="Strengthen OPay’s role in group-based money behavior"
-            body="It expands the wallet from a transfer tool into a place where shared financial coordination can actually happen."
+
+          <DecisionItem
+            title="Native group payments"
+            body="Extends OPay from moving money to helping people coordinate shared money."
           />
         </div>
       </Section>
 
+      {/* VALIDATION */}
       <section className="border-b border-border bg-background py-16 sm:py-20">
         <Container>
           <div className="max-w-6xl">
             <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.9fr)_minmax(0,1.4fr)] lg:gap-16">
               <div className="max-w-md">
+                <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-accent">
+                  Next
+                </p>
+
                 <h2 className="text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl">
                   What I’d validate next
                 </h2>
 
                 <div className="mt-5 space-y-5 text-base leading-7 text-muted sm:text-lg sm:leading-8">
                   <p>
-                    Because this was an assessment concept, the next step would
-                    be validation, not shipping everything at once.
-                  </p>
-                  <p>
-                    These are the questions I would use to pressure-test the
-                    product before deciding what deserves a deeper investment.
+                    Before deciding what deserves deeper investment, I would
+                    pressure-test the core behaviours.
                   </p>
                 </div>
               </div>
 
               <div className="border-b border-border">
                 {validationQuestions.map((item, index) => (
-                  <ValidationItem
+                  <div
                     key={item}
-                    index={String(index + 1).padStart(2, "0")}
-                    text={item}
-                  />
+                    className="grid gap-4 border-t border-border py-5 sm:grid-cols-[72px_minmax(0,1fr)] sm:gap-6"
+                  >
+                    <p className="text-sm font-medium uppercase tracking-[0.16em] text-muted">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+
+                    <p className="text-base leading-7 text-muted sm:text-lg sm:leading-8">
+                      {item}
+                    </p>
+                  </div>
                 ))}
               </div>
             </div>
@@ -636,32 +665,34 @@ export default function SplitSettlePage() {
         </Container>
       </section>
 
+      {/* REFLECTION */}
       <Section
         title="Reflection"
         intro={
           <>
             <p>
-              This project reinforced a simple truth: designing for shared money
-              is not just about payment mechanics. It is about fairness,
-              clarity, and social tone.
+              Shared money is a coordination problem before it is a payment
+              problem.
             </p>
+
             <p>
-              The strongest part of the concept was not the split calculation
-              itself. It was treating group expense management as a full product
-              loop inside a wallet users already trust. That shift made the
-              feature feel less like an add-on and more like a natural extension
-              of how people already move money.
+              The strongest part of the concept was treating group expense
+              management as a complete product loop inside a wallet users
+              already trust.
             </p>
           </>
         }
         className="border-b-0"
       />
 
-      <section className="bg-background pb-20 pt-4 sm:pb-24">
+      {/* PAGINATION */}
+      <section className="bg-background py-10 sm:py-12">
         <Container>
           <CaseStudyPagination
-            previous={{ title: "HireCleaner", href: "/work/hirecleaner" }}
-            next={undefined}
+            previous={{
+              title: "HireCleaner",
+              href: "/work/hirecleaner",
+            }}
           />
         </Container>
       </section>

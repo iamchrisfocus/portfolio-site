@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Footer from "@/components/sections/Footer";
 import Navbar from "@/components/sections/Navbar";
 import CaseStudyDecisionBlock from "@/components/case-study/CaseStudyDecisionBlock";
@@ -15,83 +14,55 @@ export default function HireCleanerPage() {
     <main className="min-h-screen bg-background text-foreground">
       <Navbar isCaseStudyPage />
 
-      <section
-        className="pt-24 sm:pt-28"
-        style={{ backgroundColor: "var(--background)" }}
-      >
+      {/* HERO */}
+      <section>
         <Container>
-          <div className="max-w-6xl">
-            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-accent">
-              Case Study
-            </p>
+          <div className="py-12 sm:py-16 lg:py-20">
+            <div className="max-w-3xl">
+              <p className="mb-5 text-sm font-medium uppercase tracking-[0.2em] text-accent">
+                Case Study
+              </p>
 
-            <h1 className="max-w-4xl text-4xl font-medium tracking-tight text-foreground sm:text-5xl md:text-6xl">
-              HireCleaner
-            </h1>
+              <h1 className="max-w-4xl text-5xl font-medium leading-[0.98] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+                HireCleaner
+              </h1>
 
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-muted sm:text-xl">
-              Designing a clearer booking experience for a residential cleaning
-              service website.
-            </p>
+              <p className="mt-6 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
+                Designing a clearer booking experience for a residential
+                cleaning service website.
+              </p>
 
-            <div className="mt-10 grid gap-6 border-t border-border pt-8 sm:grid-cols-2 lg:grid-cols-4">
-              <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-muted">
-                  Role
-                </p>
-                <p className="mt-2 text-sm leading-7 text-foreground">
+              <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted">
+                <span>
+                  <strong className="font-medium text-foreground">
+                    Role:
+                  </strong>{" "}
                   Product Designer
-                </p>
-              </div>
+                </span>
 
-              <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-muted">
-                  Platform
-                </p>
-                <p className="mt-2 text-sm leading-7 text-foreground">
+                <span>
+                  <strong className="font-medium text-foreground">
+                    Platform:
+                  </strong>{" "}
                   Responsive Web
-                </p>
-              </div>
+                </span>
 
-              <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-muted">
-                  Scope
-                </p>
-                <p className="mt-2 text-sm leading-7 text-foreground">
-                  Website UX redesign, service-page clarity, estimate flow
-                  design, responsive web handoff
-                </p>
-              </div>
-
-              <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-muted">
-                  Team
-                </p>
-                <p className="mt-2 text-sm leading-7 text-foreground">
-                  Client stakeholder, Product Designer
-                </p>
+                <span>
+                  <strong className="font-medium text-foreground">
+                    Scope:
+                  </strong>{" "}
+                  Website UX, service pages, estimate flow
+                </span>
               </div>
             </div>
 
-            <div className="mt-14 overflow-hidden rounded-[2rem] border border-border sm:mt-16">
-              <Image
-                src="/images/hirecleaner/hirecleaner-hero-composite.webp"
-                alt="HireCleaner website hero composite showing the homepage and estimate flow."
-                width={1600}
-                height={1000}
-                priority
+            <div className="mt-12 overflow-hidden rounded-[1.5rem] border border-border bg-card lg:mt-16">
+              <img
+                src="/images/hirecleaner/case-study-hero.webp"
+                alt="HireCleaner case study shown on the Figma design canvas"
+                loading="eager"
                 className="block h-auto w-full"
-                sizes="(min-width: 1280px) 1200px, 100vw"
               />
-            </div>
-
-            <div className="mt-8">
-              <a
-                href="#key-decisions"
-                className="inline-flex text-sm font-medium text-foreground underline decoration-border underline-offset-4 transition hover:decoration-foreground"
-              >
-                Skip to key decisions
-              </a>
             </div>
           </div>
         </Container>
@@ -102,50 +73,58 @@ export default function HireCleanerPage() {
           {
             label: "The problem",
             value:
-              "The site needed to make trust, service understanding, and quote-starting feel simpler for busy homeowners who wanted to book quickly without confusion.",
+              "The site needed to make the service easier to understand, build confidence quickly, and make starting a quote feel simple.",
           },
           {
             label: "What I changed",
             value:
-              "I clarified the homepage structure, improved service-page readability, and designed a cleaner step-by-step estimate flow that moved users from property details to scheduling, payment, and outcome states.",
+              "I reworked the homepage hierarchy, clarified service information, and designed a cleaner estimate journey from property details to payment and outcome.",
           },
           {
             label: "Why it mattered",
             value:
-              "For a service business like this, the website is not just marketing. It is part of the sales funnel. Reducing hesitation at key moments helps turn interest into completed booking intent.",
+              "For a service business, the website is part of the sales funnel. Reducing uncertainty at key moments helps move interest toward action.",
           },
         ]}
       />
 
+      {/* CHALLENGE */}
       <CaseStudySection title="The challenge">
         <p>
-          HireCleaner needed a website that felt straightforward, trustworthy,
-          and easy to act on. The core challenge was not simply making the site
-          look modern. It was making the service easier to understand and the
-          booking path easier to begin.
+          HireCleaner needed a website that felt straightforward,
+          trustworthy, and easy to act on.
         </p>
 
         <p>
-          In service businesses, hesitation usually comes from a few practical
-          questions. What exactly am I getting? Can I trust this company? How do
-          I start? And how much effort will this take?
+          <strong>Clarity</strong>
+          <br />
+          Users needed to understand the service quickly.
         </p>
 
         <p>
-          The website had to answer those questions quickly while keeping the
-          experience clean, calm, and conversion-focused across desktop and
-          mobile.
+          <strong>Trust</strong>
+          <br />
+          The experience needed to establish confidence before asking for
+          commitment.
+        </p>
+
+        <p>
+          <strong>Conversion</strong>
+          <br />
+          Starting an estimate needed to feel lightweight rather than like
+          another long form.
         </p>
       </CaseStudySection>
 
+      {/* SCOPE */}
       <CaseStudyTwoColumn
         title="My scope"
         left={
           <>
             <p>
-              I designed the case-study-ready website experience across the key
-              marketing and booking surfaces, focusing on the moments most
-              likely to influence action.
+              I designed the core marketing and booking surfaces, focusing on
+              the moments most likely to influence whether someone continued
+              into the estimate flow.
             </p>
 
             <p>
@@ -153,16 +132,12 @@ export default function HireCleanerPage() {
             </p>
 
             <p>
-              - Structuring the homepage to communicate value more clearly
-              <br />- Improving service-page clarity for a standard cleaning
-              offering
-              <br />- Designing the multi-step estimate flow from input to
-              confirmation states
-              <br />- Creating a cleaner visual hierarchy across supporting
-              content like “How It Works”
-              <br />- Designing responsive mobile versions so the experience
-              stayed clear and usable across desktop and mobile
-              <br />- Preparing a modular, developer-friendly UI direction
+              - Homepage structure and hierarchy
+              <br />- Service-page experience
+              <br />- Estimate flow
+              <br />- Supporting process content
+              <br />- Responsive web design
+              <br />- Developer-ready UI direction
             </p>
           </>
         }
@@ -173,246 +148,250 @@ export default function HireCleanerPage() {
             </p>
 
             <p>
-              - The experience had to stay simple and familiar for a broad
-              residential audience
-              <br />- Booking intent needed to feel lightweight, not like a long
-              form burden
-              <br />- The layout had to remain clean and mobile-friendly without
-              relying on visual excess
-              <br />- Trust, clarity, and conversion needed to work together
-              rather than compete for attention
+              - Broad residential audience
+              <br />- Low-friction booking intent
+              <br />- Trust and conversion had to work together
+              <br />- Desktop and mobile needed the same clear hierarchy
             </p>
           </>
         }
       />
 
-      <CaseStudySection title="What I focused on">
+      {/* EXPERIENCE */}
+      <CaseStudySection title="The experience">
         <p>
-          I treated HireCleaner as a practical conversion design problem. The
-          question was not “how do we make this look more impressive?” It was
-          “how do we make the service feel easier to understand and easier to
-          start?”
-        </p>
-
-        <p>That led me to focus on three things:</p>
-
-        <p>
-          <strong>1. Clarity before persuasion</strong>
-          <br />
-          Before users compare options or feel convinced, they need to
-          understand what the service is, what the process looks like, and where
-          to begin.
+          I approached the redesign around a simple progression:
         </p>
 
         <p>
-          <strong>2. Reduce friction in the quote path</strong>
-          <br />
-          Every step in the estimate flow needed to feel manageable and
-          progressive rather than heavy or uncertain.
+          <strong>Understand → Evaluate → Estimate → Book</strong>
         </p>
 
         <p>
-          <strong>3. Build trust through structure</strong>
-          <br />
-          Clean hierarchy, predictable steps, and clear outcome states do more
-          for trust than decorative complexity ever will.
+          Each stage had one job: reduce uncertainty and make the next action
+          easier.
         </p>
       </CaseStudySection>
 
       <div id="key-decisions">
+        {/* 01 */}
         <CaseStudyDecisionBlock
-          title="Key decision 1 — Making the homepage easier to trust and scan"
+          title="Key decision 1 — Make the homepage easier to trust and scan"
           intro={
             <p>
-              The homepage had to do a lot of work quickly. It needed to explain
-              the offer, establish credibility, and give users a clear path into
-              the booking journey without feeling crowded.
+              The homepage had to explain the offer, establish credibility,
+              and point users toward the next step without feeling crowded.
             </p>
           }
           problemBody={
             <p>
-              If the first screen asks users to work too hard to understand the
-              service, confidence drops early. For a residential cleaning brand,
-              that first impression needs to feel both polished and easy.
+              When the first screen makes users work too hard to understand the
+              service, hesitation starts before the booking journey even begins.
             </p>
           }
           explorationTitle="The design move"
           explorationBody={
             <p>
-              I structured the homepage to foreground the core value
-              proposition, support scanning with cleaner section rhythm, and
-              make the next action feel obvious without shouting for attention.
+              I structured the page around a clearer hierarchy of value,
+              services, proof, process, and action so users could scan first
+              and investigate deeper only when needed.
             </p>
           }
           decisionTitle="Why this mattered"
           decisionBody={
             <p>
-              A clearer homepage reduces early confusion and gives the rest of
-              the site room to do its job. It becomes easier for visitors to
-              understand the service and continue into the booking path with
-              less hesitation.
+              The homepage became a clearer entry point into the service and
+              estimate journey.
             </p>
           }
           images={[
             {
               src: "/images/hirecleaner/hirecleaner-homepage-full.webp",
-              alt: "HireCleaner homepage design showing the full responsive layout.",
+              alt: "HireCleaner homepage design showing the full layout.",
               caption:
-                "The homepage was designed to communicate trust, service value, and a clear next step without feeling noisy.",
+                "The homepage prioritised service clarity, trust signals, and a visible path into the estimate flow.",
+            },
+          ]}
+        />
+
+        {/* 02 */}
+        <CaseStudyDecisionBlock
+          title="Key decision 2 — Explain the service before asking for the booking"
+          intro={
+            <p>
+              A service page needs to answer practical questions before asking
+              someone to commit.
+            </p>
+          }
+          problemTitle="Service-page clarity"
+          problemBody={
+            <p>
+              Users needed a clearer understanding of what the Standard Clean
+              included and what the service experience looked like.
+            </p>
+          }
+          explorationTitle="Supporting content"
+          explorationBody={
+            <p>
+              I paired the service experience with a clearer How It Works
+              section so users could understand both the offer and the process.
+            </p>
+          }
+          decisionTitle="Why this mattered"
+          decisionBody={
+            <p>
+              More transparent service information reduced uncertainty before
+              users entered the estimate flow.
+            </p>
+          }
+          images={[
+            {
+              src: "/images/hirecleaner/hirecleaner-service-standard-clean.webp",
+              alt: "HireCleaner Standard Clean service page.",
+              caption:
+                "The service page made the offer, inclusions, and options easier to understand at a glance.",
+            },
+            {
+              src: "/images/hirecleaner/hirecleaner-how-it-works.webp",
+              alt: "HireCleaner How It Works page.",
+              caption:
+                "The process page made the service journey more predictable and easier to follow.",
+            },
+          ]}
+        />
+
+        {/* 03 */}
+        <CaseStudyDecisionBlock
+          title="Key decision 3 — Turn the estimate into a guided journey"
+          intro={
+            <p>
+              The estimate flow was where interest became action, so each step
+              needed to feel manageable and predictable.
+            </p>
+          }
+          problemBody={
+            <p>
+              Multi-step forms can become a drop-off point when too much is
+              requested at once or the next step feels unclear.
+            </p>
+          }
+          explorationTitle="The design move"
+          explorationBody={
+            <p>
+              I separated the journey into focused stages: property details,
+              scheduling, confirmation and payment, then outcome states.
+            </p>
+          }
+          decisionTitle="Why this mattered"
+          decisionBody={
+            <p>
+              Breaking the task into smaller decisions reduced cognitive load
+              while keeping the user oriented throughout the journey.
+            </p>
+          }
+          impactTitle="Flow structure"
+          impactBody={
+            <>
+              <p>
+                <strong>01 — Property details</strong> Start with concrete
+                information needed to build the estimate.
+              </p>
+
+              <p>
+                <strong>02 — Schedule</strong> Turn availability into a focused
+                choice.
+              </p>
+
+              <p>
+                <strong>03 — Confirm + pay</strong> Keep booking details and
+                payment visible together.
+              </p>
+
+              <p>
+                <strong>04 — Outcome</strong> Clearly communicate what happened
+                after submission.
+              </p>
+            </>
+          }
+          images={[
+            {
+              src: "/images/hirecleaner/hirecleaner-estimate-property-details.webp",
+              alt: "HireCleaner estimate property details step.",
+              heading: "Step 1 — Property details",
+              caption:
+                "The flow starts with familiar property information before moving into later decisions.",
+            },
+            {
+              src: "/images/hirecleaner/hirecleaner-estimate-schedule.webp",
+              alt: "HireCleaner estimate scheduling step.",
+              heading: "Step 2 — Schedule",
+              caption:
+                "Scheduling is isolated into its own step so the decision stays focused.",
+            },
+            {
+              src: "/images/hirecleaner/hirecleaner-estimate-confirm-pay.webp",
+              alt: "HireCleaner estimate confirmation and payment step.",
+              heading: "Step 3 — Confirm + pay",
+              caption:
+                "Confirmation and payment stay together so the user can review before completing the booking.",
+            },
+            {
+              src: "/images/hirecleaner/hirecleaner-estimate-outcome-states.webp",
+              alt: "HireCleaner estimate outcome states.",
+              heading: "Step 4 — Outcomes",
+              caption:
+                "Success and recovery states close the loop clearly after submission.",
             },
           ]}
         />
       </div>
 
-      <CaseStudyDecisionBlock
-        title="Key decision 2 — Clarifying the service page and supporting content"
-        intro={
-          <p>
-            Service businesses often lose momentum when service details feel
-            vague or fragmented. Users should not need to decode what is
-            included or how the process works.
-          </p>
-        }
-        problemTitle="Service-page clarity"
-        problemBody={
-          <p>
-            The service page needed to make a standard cleaning offer feel easy
-            to understand, credible, and worth acting on.
-          </p>
-        }
-        explorationTitle="Supporting page"
-        explorationBody={
-          <p>
-            I paired the main service page with a cleaner “How It Works” support
-            layer so users could understand the process without leaving the
-            experience with more questions than they started with.
-          </p>
-        }
-        decisionTitle="Why this mattered"
-        decisionBody={
-          <p>
-            Clarity at this stage helps bridge the gap between curiosity and
-            action. When the service and process feel straightforward, users are
-            more likely to move into the estimate flow confidently.
-          </p>
-        }
-        images={[
-          {
-            src: "/images/hirecleaner/hirecleaner-service-standard-clean.webp",
-            alt: "HireCleaner standard cleaning service page.",
-            caption:
-              "The service page made the standard-cleaning offer easier to understand at a glance.",
-          },
-          {
-            src: "/images/hirecleaner/hirecleaner-how-it-works.webp",
-            alt: "HireCleaner How It Works page.",
-            heading: "Supporting page —How It Works",
-            caption:
-              "The supporting page reduced uncertainty by making the service process feel more transparent and predictable.",
-          },
-        ]}
-      />
-
-      <CaseStudyDecisionBlock
-        title="Key decision 3 — Designing the estimate flow as a calm step-by-step journey"
-        intro={
-          <p>
-            The estimate flow was where intent became action. That meant the
-            experience had to feel progressive, low-friction, and dependable
-            from the first input through the final state.
-          </p>
-        }
-        problemBody={
-          <p>
-            Multi-step forms can easily become a drop-off point when users are
-            asked for too much too quickly or when the next step feels unclear.
-          </p>
-        }
-        explorationTitle="The design move"
-        explorationBody={
-          <p>
-            I broke the estimate experience into a clear sequence: property
-            details, scheduling, confirmation and payment, then final outcome
-            states. Each screen focused on one main job so the process felt
-            guided rather than overwhelming.
-          </p>
-        }
-        decisionTitle="Why this mattered"
-        decisionBody={
-          <p>
-            This turned the quote path into a more reassuring journey. Users
-            could understand where they were, what was needed next, and what the
-            result of the flow would be.
-          </p>
-        }
-        impactTitle="What improved"
-        impactBody={
-          <>
-            <p>
-              The step-by-step structure reduced cognitive load and made the
-              experience feel more manageable on both desktop and mobile.
-            </p>
-            <p>
-              Just as important, the outcome states helped the flow feel
-              complete. Good booking experiences do not stop at data entry. They
-              also confirm progress clearly.
-            </p>
-          </>
-        }
-        images={[
-          {
-            src: "/images/hirecleaner/hirecleaner-estimate-property-details.webp",
-            alt: "HireCleaner estimate flow property details step.",
-            heading: "Step 1 — Property details",
-            caption:
-              "The flow opened with property details so users could start with concrete, familiar information.",
-          },
-          {
-            src: "/images/hirecleaner/hirecleaner-estimate-schedule.webp",
-            alt: "HireCleaner estimate flow scheduling step.",
-            heading: "Step 2 — Schedule selection",
-            caption:
-              "Scheduling was separated into its own step to keep choices focused and easier to complete.",
-          },
-          {
-            src: "/images/hirecleaner/hirecleaner-estimate-confirm-pay.webp",
-            alt: "HireCleaner estimate flow confirmation and payment step.",
-            heading: "Step 3 — Confirmation and payment",
-            caption:
-              "Confirmation and payment were designed to feel clear and deliberate rather than rushed.",
-          },
-          {
-            src: "/images/hirecleaner/hirecleaner-estimate-outcome-states.webp",
-            alt: "HireCleaner estimate flow outcome states.",
-            heading: "Step 4 — Outcome states",
-            caption:
-              "The final states closed the loop cleanly so users understood what happened next after submission.",
-          },
-        ]}
-      />
-
-      <CaseStudySection title="Handoff and delivery">
+      {/* FINAL SYSTEM */}
+      <CaseStudySection title="Final system">
         <p>
-          The final work covered the homepage, service clarity, supporting
-          process content, and the full estimate journey. I kept the layout
-          modular so the experience could scale without turning into a one-off
-          design exercise.
+          The final experience connects the marketing site and estimate journey
+          into one continuous path.
         </p>
 
         <p>
-          I also designed responsive mobile versions of the web experience so
-          the structure, hierarchy, and booking flow stayed clear across
-          breakpoints.
+          <strong>Homepage → Service → Estimate → Confirmation</strong>
         </p>
 
         <p>
-          Instead of relying on screenshot-based metrics, I framed the delivery
-          in simple product terms: clearer entry points, cleaner decision
-          moments, and a quote flow structured to support completion.
+          Each stage provides enough context for the next decision without
+          overwhelming the user too early.
+        </p>
+      </CaseStudySection>
+
+      {/* HANDOFF */}
+      <CaseStudySection title="Handoff + delivery">
+        <p>
+          The final work covered the homepage, service experience, supporting
+          process content, and the full estimate journey.
+        </p>
+
+        <p>
+          <strong>Responsive web</strong>
+          <br />
+          Desktop and mobile layouts were designed as one system.
+        </p>
+
+        <p>
+          <strong>Modular UI</strong>
+          <br />
+          The experience was structured around reusable patterns rather than
+          isolated screens.
+        </p>
+
+        <p>
+          <strong>End-to-end flow</strong>
+          <br />
+          Marketing content and booking interaction were designed as one
+          connected journey.
         </p>
 
         <div className="grid gap-4 pt-4 sm:grid-cols-3">
-          <div className="rounded-[1.75rem] border border-border bg-card px-6 py-8 sm:px-7">
+          <div className="rounded-[1.25rem] border border-border bg-card px-6 py-8">
             <p className="text-4xl font-medium tracking-tight text-foreground sm:text-5xl">
               1
             </p>
@@ -421,7 +400,7 @@ export default function HireCleanerPage() {
             </p>
           </div>
 
-          <div className="rounded-[1.75rem] border border-border bg-card px-6 py-8 sm:px-7">
+          <div className="rounded-[1.25rem] border border-border bg-card px-6 py-8">
             <p className="text-4xl font-medium tracking-tight text-foreground sm:text-5xl">
               5
             </p>
@@ -430,7 +409,7 @@ export default function HireCleanerPage() {
             </p>
           </div>
 
-          <div className="rounded-[1.75rem] border border-border bg-card px-6 py-8 sm:px-7">
+          <div className="rounded-[1.25rem] border border-border bg-card px-6 py-8">
             <p className="text-4xl font-medium tracking-tight text-foreground sm:text-5xl">
               4
             </p>
@@ -441,56 +420,62 @@ export default function HireCleanerPage() {
         </div>
       </CaseStudySection>
 
+      {/* OUTCOMES */}
       <CaseStudyOutcomeGrid
         title="Outcomes"
         items={[
           {
             title: "Clearer first impression",
             description:
-              "The homepage direction made the brand feel more trustworthy and easier to understand from the first screen.",
+              "The homepage made the service easier to understand and created a clearer path toward action.",
           },
           {
             title: "Better service comprehension",
             description:
-              "The service and process pages reduced uncertainty by explaining both the offer and the journey more cleanly.",
+              "Service and process content reduced uncertainty before users entered the estimate flow.",
           },
           {
             title: "Lower-friction booking path",
             description:
-              "The estimate flow broke a potentially heavy task into smaller, more manageable steps that better support completion.",
+              "The estimate experience broke a potentially heavy task into smaller, more manageable decisions.",
           },
         ]}
       />
 
+      {/* REFLECTION */}
       <CaseStudyReflection
         title="Reflection"
         items={[
           {
             title: "Clarity is part of conversion",
             description:
-              "For service websites, users do not need more drama. They need to understand what they are buying and how to begin.",
+              "Users do not need more persuasion when they are still trying to understand what they are buying.",
           },
           {
             title: "Trust is built through structure",
             description:
-              "A calm hierarchy, clear steps, and clean confirmation states can do more heavy lifting than decorative polish.",
+              "Clear hierarchy, predictable steps, and explicit outcomes make a service experience feel more dependable.",
           },
           {
             title: "Simple flows usually win",
             description:
-              "The strongest work here came from reducing uncertainty and keeping each screen focused on one job at a time.",
+              "The strongest improvements came from reducing uncertainty and keeping each screen focused on one job.",
           },
         ]}
       />
 
-      <section
-        className="py-10 sm:py-12"
-        style={{ backgroundColor: "var(--background)" }}
-      >
+      {/* PAGINATION */}
+      <section className="bg-background py-10 sm:py-12">
         <Container>
           <CaseStudyPagination
-            previous={{ title: "Spritz", href: "/work/spritz" }}
-            next={{ title: "Split & Settle", href: "/work/split-settle" }}
+            previous={{
+              title: "Etherally",
+              href: "/work/etherally",
+            }}
+            next={{
+              title: "Split & Settle",
+              href: "/work/split-settle",
+            }}
           />
         </Container>
       </section>
