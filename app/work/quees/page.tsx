@@ -5,7 +5,7 @@ import Navbar from "@/components/sections/Navbar";
 import CaseStudyPagination from "@/components/ui/CaseStudyPagination";
 import Container from "@/components/ui/Container";
 
-const base = "/images/Quees";
+const base = "/images/quees";
 const assetVersion = "1";
 
 function SectionLabel({ children }: { children: ReactNode }) {
