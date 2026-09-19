@@ -1284,13 +1284,13 @@ export default function EtherallyCaseStudyPage() {
           <Container>
             <CaseStudyPagination
               previous={{
-                title: "Averra",
-                href: "/work/averra",
+                title: "Quees",
+                href: "/work/quees",
               }}
-              next={{
+              /*next={{
                 title: "Split & Settle",
                 href: "/work/split-settle",
-              }}
+              }}*/
             />
           </Container>
         </section>

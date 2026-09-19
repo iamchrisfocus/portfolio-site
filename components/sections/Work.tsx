@@ -29,12 +29,20 @@ const projects: Project[] = [
     lightImage: "/images/sova-customer/sova-customer-cover-light.webp",
   },
   {
-    title: "Avera",
+    title: "Averra",
     meta: "Web • SaaS • Education",
     description:
       "A school administrator workspace designed to turn school data into clear operational decisions.",
     href: "/work/averra",
     image: "/images/averra/averra-cover.webp",
+  },
+  {
+    title: "Quees",
+    meta: "Mobile • Fintech • Concept",
+    description:
+      "A social-first fintech concept designed to make shared expenses, reconciliation, and settlement effortless.",
+    href: "/work/quees",
+    image: "/images/Quees/quees-cover.webp",
   },
   {
     title: "Etherally",
@@ -43,14 +51,6 @@ const projects: Project[] = [
       "A community discovery experience designed to make the Ethereum ecosystem easier to explore, filter, and connect with.",
     href: "/work/etherally",
     image: "/images/etherally/etherally-cover.webp",
-  },
-  {
-    title: "Split & Settle",
-    meta: "Fintech • Concept",
-    description:
-      "A utility concept for reducing friction in shared expenses and group payments.",
-    href: "/work/split-settle",
-    image: "/images/split-settle/split-settle-cover.webp",
   },
   {
     title: "Coming soon",
@@ -162,8 +162,7 @@ export default function Work() {
           </p>
 
           <h2 className="text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
-            Products I’ve helped shape across services, education, community,
-            and fintech.
+            Products I’ve helped shape.
           </h2>
         </div>
 

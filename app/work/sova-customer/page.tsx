@@ -879,14 +879,6 @@ export default function SovaCustomerCaseStudyPage() {
                 the customer experience stays direct.
               </p>
             </div>
-
-            <div className="mt-10 max-w-2xl space-y-4">
-              <Bullet title="Reusable property context" />
-              <Bullet title="Service-led booking" />
-              <Bullet title="Time-window scheduling" />
-              <Bullet title="Flexible booking changes" />
-              <Bullet title="Connected customer-to-field experience" />
-            </div>
           </Container>
         </section>
 

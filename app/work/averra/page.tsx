@@ -70,10 +70,17 @@ function Bullet({
     <div className="flex gap-3">
       <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/50" />
 
-      <p className="text-[15px] leading-7 text-muted">
-        <strong className="font-medium text-foreground">{title}</strong>
-        {children ? <> {children}</> : null}
-      </p>
+      <div className="flex min-w-0 gap-1 text-[15px] leading-7 text-muted">
+        <strong className="shrink-0 font-medium text-foreground">
+          {title}
+        </strong>
+
+        {children ? (
+          <p className="min-w-0">
+            — {children}
+          </p>
+        ) : null}
+      </div>
     </div>
   );
 }
@@ -781,8 +788,8 @@ export default function AverraCaseStudyPage() {
                 href: "/work/sova-customer",
               }}
               next={{
-                title: "Etherally",
-                href: "/work/etherally",
+                title: "Quees",
+                href: "/work/quees",
               }}
             />
           </Container>

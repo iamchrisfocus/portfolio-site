@@ -171,7 +171,7 @@ export default function SovaOperationsCaseStudyPage() {
                     Sova
                   </span>
 
-                  <span className="mt-3 block max-w-3xl text-3xl font-medium leading-tight tracking-[-0.035em] sm:text-4xl lg:text-5xl">
+                  <span className="mt-3 block max-w-3xl text-3xl font-medium leading-tight tracking-[-0.035em] sm:text-4xl lg:text-4xl">
                     Service Operations + Field Operations
                   </span>
                 </h1>
@@ -247,11 +247,11 @@ export default function SovaOperationsCaseStudyPage() {
                   only the information they need to execute the work.
                 </p>
 
-                <div className="mt-8 grid gap-4">
-                  <Bullet title="Realistic schedules —" />
-                  <Bullet title="Clear ownership —" />
-                  <Bullet title="Visible risk —" />
-                  <Bullet title="Fast recovery —" />
+                <div className="mt-8 flex gap-8 flex-wrap">
+                  <Bullet title="Realistic schedules" />
+                  <Bullet title="Clear ownership" />
+                  <Bullet title="Visible risk" />
+                  <Bullet title="Fast recovery" />
                 </div>
               </div>
             </div>
@@ -514,11 +514,11 @@ export default function SovaOperationsCaseStudyPage() {
                 to go, what the job includes, what changed, and what to do next.
               </p>
 
-              <div className="mt-8 grid gap-4">
-                <Bullet title="Know the job —" />
-                <Bullet title="Start the work —" />
-                <Bullet title="Handle exceptions —" />
-                <Bullet title="Complete the service —" />
+              <div className="mt-8 flex gap-8 flex-wrap">
+                <Bullet title="Know the job" />
+                <Bullet title="Start the work" />
+                <Bullet title="Handle exceptions" />
+                <Bullet title="Complete the service" />
               </div>
             </div>
 
@@ -673,14 +673,6 @@ export default function SovaOperationsCaseStudyPage() {
                 sophisticated underneath without making every interface
                 sophisticated on the surface.
               </p>
-            </div>
-
-            <div className="mt-10 max-w-2xl space-y-4">
-              <Bullet title="Operational visibility" />
-              <Bullet title="Risk-aware scheduling" />
-              <Bullet title="Shared service records" />
-              <Bullet title="Team-aware dispatch" />
-              <Bullet title="Lightweight field execution" />
             </div>
           </Container>
         </section>
