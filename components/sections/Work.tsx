@@ -42,7 +42,7 @@ const projects: Project[] = [
     description:
       "A social-first fintech concept designed to make shared expenses, reconciliation, and settlement effortless.",
     href: "/work/quees",
-    image: "/images/Quees/quees-cover.webp",
+    image: "/images/quees/quees-cover.webp",
   },
   {
     title: "Etherally",
