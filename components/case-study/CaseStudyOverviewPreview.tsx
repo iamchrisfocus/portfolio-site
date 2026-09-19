@@ -3,24 +3,26 @@
 import { useEffect, useState } from "react";
 
 type CaseStudyOverviewPreviewProps = {
-  src: string;
+  previewSrc: string;
+  fullSrc: string;
   alt: string;
   label: string;
   mobile?: boolean;
 };
 
-const ASSET_VERSION = "6";
+const ASSET_VERSION = "1";
 
 export default function CaseStudyOverviewPreview({
-  src,
+  previewSrc,
+  fullSrc,
   alt,
   label,
   mobile = false,
 }: CaseStudyOverviewPreviewProps) {
   const [open, setOpen] = useState(false);
 
-  const cleanSrc = src.split("?")[0];
-  const imageSrc = `${cleanSrc}?v=${ASSET_VERSION}`;
+  const previewImageSrc = `${previewSrc}?v=${ASSET_VERSION}`;
+  const fullImageSrc = `${fullSrc}?v=${ASSET_VERSION}`;
 
   useEffect(() => {
     if (!open) return;
@@ -31,12 +33,14 @@ export default function CaseStudyOverviewPreview({
       }
     };
 
+    const previousOverflow = document.body.style.overflow;
+
     document.addEventListener("keydown", handleKeyDown);
     document.body.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
     };
   }, [open]);
 
@@ -45,11 +49,11 @@ export default function CaseStudyOverviewPreview({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group block h-full w-full text-left"
+        className="group block w-full touch-manipulation text-left"
         aria-label={`Open ${label} full-page view`}
       >
-        <div className="flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-border bg-card">
-          <div className="flex shrink-0 items-center justify-between border-b border-border px-4 py-3 sm:px-5">
+        <div className="overflow-hidden rounded-[1.25rem] border border-border bg-card">
+          <div className="flex items-center justify-between border-b border-border px-4 py-3 sm:px-5">
             <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted">
               {label}
             </p>
@@ -59,32 +63,19 @@ export default function CaseStudyOverviewPreview({
             </span>
           </div>
 
-          <div className="relative h-[520px] shrink-0 overflow-hidden bg-background">
-            {mobile ? (
-              <div className="flex h-full justify-center overflow-hidden">
-                <div className="w-[440px] max-w-[calc(100%-1.5rem)] shrink-0">
-                  <img
-                    key={imageSrc}
-                    src={imageSrc}
-                    alt={alt}
-                    className="block h-auto w-full"
-                  />
-                </div>
-              </div>
-            ) : (
-              <img
-                key={imageSrc}
-                src={imageSrc}
-                alt={alt}
-                className="block h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
-              />
-            )}
-
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent px-5 pb-5 pt-24 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-              <span className="text-sm font-medium text-white">
-                Open full experience →
-              </span>
-            </div>
+          <div
+            className={`relative overflow-hidden bg-background ${
+              mobile
+                ? "aspect-[4/5]"
+                : "aspect-[16/8]"
+            }`}
+          >
+            <img
+              src={previewImageSrc}
+              alt={alt}
+              draggable={false}
+              className="block h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.015]"
+            />
           </div>
         </div>
       </button>
@@ -98,10 +89,10 @@ export default function CaseStudyOverviewPreview({
           onClick={() => setOpen(false)}
         >
           <div
-            className={`relative flex h-[calc(100vh-1.5rem)] max-h-[calc(100vh-1.5rem)] overflow-hidden border border-white/10 bg-background shadow-2xl sm:h-[calc(100vh-3rem)] sm:max-h-[calc(100vh-3rem)] ${
+            className={`relative flex h-[calc(100vh-1.5rem)] max-h-[calc(100vh-1.5rem)] w-full overflow-hidden border border-white/10 bg-background shadow-2xl sm:h-[calc(100vh-3rem)] sm:max-h-[calc(100vh-3rem)] ${
               mobile
-                ? "w-[440px] max-w-full rounded-[1.25rem]"
-                : "w-full max-w-7xl rounded-[1.25rem]"
+                ? "max-w-[460px] rounded-[1.25rem]"
+                : "max-w-7xl rounded-[1.25rem]"
             }`}
             onClick={(event) => event.stopPropagation()}
           >
@@ -120,24 +111,21 @@ export default function CaseStudyOverviewPreview({
               </button>
             </div>
 
-            <div className="min-h-0 flex-1 overflow-y-auto pt-14">
-              {mobile ? (
-                <div className="mx-auto w-[440px] max-w-full">
-                  <img
-                    key={`overlay-${imageSrc}`}
-                    src={imageSrc}
-                    alt={alt}
-                    className="block h-auto w-full"
-                  />
-                </div>
-              ) : (
+            <div className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden bg-background pt-14">
+              <div
+                className={
+                  mobile
+                    ? "mx-auto w-full max-w-[460px]"
+                    : "w-full"
+                }
+              >
                 <img
-                  key={`overlay-${imageSrc}`}
-                  src={imageSrc}
+                  src={fullImageSrc}
                   alt={alt}
+                  draggable={false}
                   className="block h-auto w-full"
                 />
-              )}
+              </div>
             </div>
           </div>
         </div>

@@ -690,8 +690,8 @@ export default function SplitSettlePage() {
         <Container>
           <CaseStudyPagination
             previous={{
-              title: "HireCleaner",
-              href: "/work/hirecleaner",
+              title: "Etherally",
+              href: "/work/etherally",
             }}
           />
         </Container>

@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 
-import CaseStudyOverviewPreview from "@/components/case-study/CaseStudyOverviewPreview";
 import Footer from "@/components/sections/Footer";
 import Navbar from "@/components/sections/Navbar";
 import CaseStudyPagination from "@/components/ui/CaseStudyPagination";
@@ -250,20 +249,6 @@ export default function EtherallyCaseStudyPage() {
               </div>
             </div>
 
-            <div className="mt-14 grid items-stretch grid-cols-[minmax(0,7fr)_minmax(0,2.5fr)] gap-5 lg:mt-20">
-              <CaseStudyOverviewPreview
-                src={`${base}/full-page-desktop.webp?v=${assetVersion}`}
-                alt="Full desktop overview of the Etherally Communities redesign"
-                label="Desktop experience"
-              />
-
-              <CaseStudyOverviewPreview
-                src={`${base}/full-page-mobile.webp?v=${assetVersion}`}
-                alt="Full mobile overview of the Etherally Communities redesign"
-                label="Mobile experience"
-                mobile
-              />
-            </div>
           </Container>
         </section>
 
@@ -1299,12 +1284,12 @@ export default function EtherallyCaseStudyPage() {
           <Container>
             <CaseStudyPagination
               previous={{
-                title: "Spritz",
-                href: "/work/spritz",
+                title: "Averra",
+                href: "/work/averra",
               }}
               next={{
-                title: "HireCleaner",
-                href: "/work/hirecleaner",
+                title: "Split & Settle",
+                href: "/work/split-settle",
               }}
             />
           </Container>
