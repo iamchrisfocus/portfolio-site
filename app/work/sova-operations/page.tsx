@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import CaseStudyImageViewer, { CaseStudyHeroImage } from "@/components/ui/CaseStudyImage";
 import Footer from "@/components/sections/Footer";
 import Navbar from "@/components/sections/Navbar";
 import CaseStudyPagination from "@/components/ui/CaseStudyPagination";
@@ -30,28 +31,12 @@ function CaseStudyImage({
   priority?: boolean;
 }) {
   return (
-    <div className="overflow-hidden rounded-[1.5rem] border border-border bg-card">
-      {lightSrc ? (
-        <img
-          src={`${base}/${lightSrc}.webp`}
-          alt={alt}
-          loading={priority ? "eager" : "lazy"}
-          className="block h-auto w-full dark:hidden"
-        />
-      ) : null}
-
-      <img
-        src={`${base}/${src}.webp`}
-        alt={lightSrc ? "" : alt}
-        aria-hidden={lightSrc ? "true" : undefined}
-        loading={priority ? "eager" : "lazy"}
-        className={
-          lightSrc
-            ? "hidden h-auto w-full dark:block"
-            : "block h-auto w-full"
-        }
-      />
-    </div>
+    <CaseStudyImageViewer
+      src={`${base}/${src}.webp`}
+      lightSrc={lightSrc ? `${base}/${lightSrc}.webp` : undefined}
+      alt={alt}
+      priority={priority}
+    />
   );
 }
 
@@ -212,9 +197,9 @@ export default function SovaOperationsCaseStudyPage() {
               </div>
 
               <div className="mt-12 lg:mt-16">
-                <CaseStudyImage
-                  base={operationsBase}
-                  src="sova-operations-hero"
+                <CaseStudyHeroImage
+                  src={`${operationsBase}/sova-operations-hero.webp`}
+                  lightSrc={`${operationsBase}/sova-operations-hero-light.webp`}
                   alt="Sova service operations workspace"
                   priority
                 />
@@ -523,20 +508,23 @@ export default function SovaOperationsCaseStudyPage() {
             </div>
 
             <div className="mt-12">
-              <Figure
-                base={fieldBase}
-                src="sova-field-hero"
-                lightSrc="sova-field-hero-light"
+              <CaseStudyImageViewer
+                src={`${fieldBase}/sova-field-hero.webp`}
+                lightSrc={`${fieldBase}/sova-field-hero-light.webp`}
                 alt="Sova field operations mobile experience"
-                caption="The field layer strips the wider operating model down to the information required to do the work."
+                priority
+                bare
               />
+
+              <p className="mt-4 text-sm leading-6 text-muted">
+                The field layer strips the wider operating model down to the information required to do the work.
+              </p>
             </div>
 
             <div className="mt-16 space-y-16 lg:mt-20">
               <Figure
                 base={fieldBase}
                 src="sova-field-home"
-                lightSrc="sova-field-home-light"
                 alt="Sova field operations home showing today's assigned work"
                 caption="The field home keeps the next action obvious without exposing the complexity of the wider operation."
               />
@@ -544,7 +532,6 @@ export default function SovaOperationsCaseStudyPage() {
               <Figure
                 base={fieldBase}
                 src="sova-field-job-details"
-                lightSrc="sova-field-job-details-light"
                 alt="Sova field job details showing the execution flow and checklist"
                 caption="Job details carry the scope, checklist, progress, and completion steps the worker needs in one flow."
               />
@@ -552,7 +539,6 @@ export default function SovaOperationsCaseStudyPage() {
               <Figure
                 base={fieldBase}
                 src="sova-field-job-detail"
-                lightSrc="sova-field-job-detail-light"
                 alt="Sova field job detail state showing the service context at job level"
                 caption="The job-level state keeps service context close when a worker needs to verify what is being delivered."
               />
@@ -560,7 +546,6 @@ export default function SovaOperationsCaseStudyPage() {
               <Figure
                 base={fieldBase}
                 src="sova-field-issue-report"
-                lightSrc="sova-field-issue-report-light"
                 alt="Sova field issue reporting and resolution states"
                 caption="Issues can be reported in context, then passed back into the operational workflow for resolution."
               />

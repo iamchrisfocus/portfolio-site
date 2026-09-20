@@ -12,13 +12,23 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />
+
       <Hero />
+
       <SkillsStrip />
+
       <Work />
-      <Tools />
+
+      <div data-motion-static>
+        <Tools />
+      </div>
+
       <About />
+
       <Recommendation />
+
       <Contact />
+
       <Footer />
     </main>
   );

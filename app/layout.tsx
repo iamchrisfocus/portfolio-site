@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import PageMotion from "@/components/ui/PageMotion";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,8 +19,16 @@ export const metadata: Metadata = {
   description: "Product designer focused on turning complexity into clarity.",
   icons: {
     icon: [
-      { url: "/images/favicon/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/images/favicon/favicon-64.png", sizes: "64x64", type: "image/png" },
+      {
+        url: "/images/favicon/favicon-32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/images/favicon/favicon-64.png",
+        sizes: "64x64",
+        type: "image/png",
+      },
     ],
   },
 };
@@ -42,7 +51,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          {children}
+          <PageMotion>{children}</PageMotion>
         </ThemeProvider>
       </body>
     </html>

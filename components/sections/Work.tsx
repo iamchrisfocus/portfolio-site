@@ -18,10 +18,11 @@ const projects: Project[] = [
       "A connected operating system for planning service work, managing teams, and supporting field execution.",
     href: "/work/sova-operations",
     image: "/images/sova-operations/sova-operations-cover.webp",
+    lightImage: "/images/sova-operations/sova-operations-cover-light.webp",
   },
   {
     title: "Sova / Customer Experience",
-    meta: "Mobile • Service Experience",
+    meta: "Mobile • Web • Service Experience",
     description:
       "A customer experience designed to make professional home cleaning effortless to book and manage.",
     href: "/work/sova-customer",
@@ -35,6 +36,7 @@ const projects: Project[] = [
       "A school administrator workspace designed to turn school data into clear operational decisions.",
     href: "/work/averra",
     image: "/images/averra/averra-cover.webp",
+    lightImage: "/images/averra/averra-cover-light.webp",
   },
   {
     title: "Quees",
@@ -43,6 +45,7 @@ const projects: Project[] = [
       "A social-first fintech concept designed to make shared expenses, reconciliation, and settlement effortless.",
     href: "/work/quees",
     image: "/images/quees/quees-cover.webp",
+    lightImage: "/images/quees/quees-cover-light.webp",
   },
   {
     title: "Etherally",
@@ -51,6 +54,7 @@ const projects: Project[] = [
       "A community discovery experience designed to make the Ethereum ecosystem easier to explore, filter, and connect with.",
     href: "/work/etherally",
     image: "/images/etherally/etherally-cover.webp",
+    lightImage: "/images/etherally/etherally-cover-light.webp",
   },
   {
     title: "Coming soon",
@@ -77,6 +81,7 @@ function ProjectCard({ project }: { project: Project }) {
                 className="!rounded-none object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.03] dark:hidden"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
+
               <Image
                 src={project.image}
                 alt=""
@@ -101,6 +106,7 @@ function ProjectCard({ project }: { project: Project }) {
               <p className="text-sm font-medium uppercase tracking-[0.16em] text-muted">
                 Coming soon
               </p>
+
               <p className="mt-3 text-base text-muted">
                 More work is on the way.
               </p>
@@ -153,6 +159,12 @@ function ProjectCard({ project }: { project: Project }) {
 }
 
 export default function Work() {
+  const projectRows: Project[][] = [];
+
+  for (let index = 0; index < projects.length; index += 2) {
+    projectRows.push(projects.slice(index, index + 2));
+  }
+
   return (
     <section id="work" className="border-t border-border bg-background py-24">
       <Container>
@@ -166,9 +178,20 @@ export default function Work() {
           </h2>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+        <div className="space-y-6">
+          {projectRows.map((row, rowIndex) => (
+            <div
+              key={`project-row-${rowIndex}`}
+              data-project-row
+              className="grid gap-6 md:grid-cols-2"
+            >
+              {row.map((project) => (
+                <ProjectCard
+                  key={project.title}
+                  project={project}
+                />
+              ))}
+            </div>
           ))}
         </div>
       </Container>

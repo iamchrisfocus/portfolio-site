@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import CaseStudyImageViewer, { CaseStudyHeroImage } from "@/components/ui/CaseStudyImage";
 import Footer from "@/components/sections/Footer";
 import Navbar from "@/components/sections/Navbar";
 import CaseStudyPagination from "@/components/ui/CaseStudyPagination";
@@ -18,22 +19,28 @@ function SectionLabel({ children }: { children: ReactNode }) {
 
 function CaseStudyImage({
   src,
+  lightSrc,
   alt,
   priority = false,
+  previewClipHeight,
+  previewMaxWidth,
 }: {
   src: string;
+  lightSrc?: string;
   alt: string;
   priority?: boolean;
+  previewClipHeight?: number;
+  previewMaxWidth?: string | number;
 }) {
   return (
-    <div className="overflow-hidden rounded-[1.5rem] border border-border bg-card">
-      <img
-        src={`${base}/${src}?v=${assetVersion}`}
-        alt={alt}
-        loading={priority ? "eager" : "lazy"}
-        className="block h-auto w-full"
-      />
-    </div>
+    <CaseStudyImageViewer
+      src={`${base}/${src}?v=${assetVersion}`}
+      lightSrc={lightSrc ? `${base}/${lightSrc}?v=${assetVersion}` : undefined}
+      alt={alt}
+      priority={priority}
+      previewClipHeight={previewClipHeight}
+      previewMaxWidth={previewMaxWidth}
+    />
   );
 }
 
@@ -163,10 +170,12 @@ export default function QueesCaseStudyPage() {
               </div>
 
               <div className="mt-12 lg:mt-16">
-                <CaseStudyImage
-                  src="quees-hero.webp"
+                <CaseStudyImageViewer
+                  src={`${base}/quees-hero.webp`}
+                  lightSrc={`${base}/quees-hero-light.webp`}
                   alt="Quees Split and Settle mobile experience"
                   priority
+                  bare
                 />
               </div>
             </div>

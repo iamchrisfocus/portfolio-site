@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import CaseStudyImageViewer, { CaseStudyHeroImage } from "@/components/ui/CaseStudyImage";
 import Footer from "@/components/sections/Footer";
 import Navbar from "@/components/sections/Navbar";
 import CaseStudyPagination from "@/components/ui/CaseStudyPagination";
@@ -20,20 +21,23 @@ function CaseStudyImage({
   src,
   alt,
   priority = false,
+  previewClipHeight,
+  previewMaxWidth,
 }: {
   src: string;
   alt: string;
   priority?: boolean;
+  previewClipHeight?: number;
+  previewMaxWidth?: string | number;
 }) {
   return (
-    <div className="overflow-hidden rounded-[1.5rem] border border-border bg-card">
-      <img
-        src={`${src}?v=${assetVersion}`}
-        alt={alt}
-        loading={priority ? "eager" : "lazy"}
-        className="block h-auto w-full"
-      />
-    </div>
+    <CaseStudyImageViewer
+      src={`${src}?v=${assetVersion}`}
+      alt={alt}
+      priority={priority}
+      previewClipHeight={previewClipHeight}
+      previewMaxWidth={previewMaxWidth}
+    />
   );
 }
 
@@ -192,8 +196,8 @@ export default function EtherallyCaseStudyPage() {
               </div>
 
               <div className="mt-12 lg:mt-16">
-                <CaseStudyImage
-                  src={`${base}/case-study-hero.webp`}
+                <CaseStudyHeroImage
+                  src={`${base}/case-study-hero.webp?v=${assetVersion}`}
                   alt="Etherally Communities case study shown on the Figma canvas"
                   priority
                 />

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import CaseStudyImageViewer, { CaseStudyHeroImage } from "@/components/ui/CaseStudyImage";
 import Footer from "@/components/sections/Footer";
 import Navbar from "@/components/sections/Navbar";
 import CaseStudyPagination from "@/components/ui/CaseStudyPagination";
@@ -21,41 +22,25 @@ function CaseStudyImage({
   lightSrc,
   alt,
   priority = false,
+  previewClipHeight,
+  previewMaxWidth,
 }: {
   src: string;
   lightSrc?: string;
   alt: string;
   priority?: boolean;
+  previewClipHeight?: number;
+  previewMaxWidth?: string | number;
 }) {
   return (
-    <div className="overflow-hidden rounded-[1.5rem] border border-border bg-card">
-      {lightSrc ? (
-        <>
-          {/* Light mode image */}
-          <img
-            src={`${base}/${lightSrc}?v=${assetVersion}`}
-            alt={alt}
-            loading={priority ? "eager" : "lazy"}
-            className="block h-auto w-full dark:hidden"
-          />
-
-          {/* Dark mode image */}
-          <img
-            src={`${base}/${src}?v=${assetVersion}`}
-            alt={alt}
-            loading={priority ? "eager" : "lazy"}
-            className="hidden h-auto w-full dark:block"
-          />
-        </>
-      ) : (
-        <img
-          src={`${base}/${src}?v=${assetVersion}`}
-          alt={alt}
-          loading={priority ? "eager" : "lazy"}
-          className="block h-auto w-full"
-        />
-      )}
-    </div>
+    <CaseStudyImageViewer
+      src={`${base}/${src}?v=${assetVersion}`}
+      lightSrc={lightSrc ? `${base}/${lightSrc}?v=${assetVersion}` : undefined}
+      alt={alt}
+      priority={priority}
+      previewClipHeight={previewClipHeight}
+      previewMaxWidth={previewMaxWidth}
+    />
   );
 }
 
@@ -200,11 +185,12 @@ export default function AverraCaseStudyPage() {
               </div>
 
               <div className="mt-12 lg:mt-16">
-                <CaseStudyImage
-                  src="averra-hero.webp"
-                  lightSrc="averra-hero-light.webp"
+                <CaseStudyHeroImage
+                  src={`${base}/averra-hero.webp?v=${assetVersion}`}
+                  lightSrc={`${base}/averra-hero-light.webp?v=${assetVersion}`}
                   alt="Averra school administrator dashboard showing the operational overview with notifications open"
                   priority
+                  lightModeClassName="ring-1 ring-black/10"
                 />
               </div>
             </div>
@@ -326,7 +312,6 @@ export default function AverraCaseStudyPage() {
             <div className="mt-12">
               <CaseStudyImage
                 src="averra-overview.webp"
-                lightSrc="averra-overview-light.webp"
                 alt="Full-page Averra administrator overview dashboard"
               />
             </div>
@@ -389,7 +374,6 @@ export default function AverraCaseStudyPage() {
             <div className="mt-12">
               <CaseStudyImage
                 src="averra-students.webp"
-                lightSrc="averra-students-light.webp"
                 alt="Averra student directory"
               />
             </div>
@@ -423,7 +407,6 @@ export default function AverraCaseStudyPage() {
             <div className="mt-12">
               <CaseStudyImage
                 src="averra-students-selected.webp"
-                lightSrc="averra-students-selected-light.webp"
                 alt="Averra student directory with multiple students selected"
               />
             </div>
@@ -445,7 +428,6 @@ export default function AverraCaseStudyPage() {
             <div className="mt-12">
               <CaseStudyImage
                 src="averra-student-profile.webp"
-                lightSrc="averra-student-profile-light.webp"
                 alt="Amara Johnson student profile in Averra"
               />
             </div>
@@ -505,7 +487,6 @@ export default function AverraCaseStudyPage() {
             <div className="mt-12">
               <CaseStudyImage
                 src="averra-attendance.webp"
-                lightSrc="averra-attendance-light.webp"
                 alt="Averra attendance management workspace"
               />
             </div>
@@ -553,7 +534,6 @@ export default function AverraCaseStudyPage() {
             <div className="mt-12">
               <CaseStudyImage
                 src="averra-classes.webp"
-                lightSrc="averra-classes-light.webp"
                 alt="Averra classes workspace"
               />
             </div>
@@ -587,7 +567,6 @@ export default function AverraCaseStudyPage() {
             <div className="mt-12">
               <CaseStudyImage
                 src="averra-classes-detail.webp"
-                lightSrc="averra-classes-detail-light.webp"
                 alt="Averra JSS 2A class detail side panel"
               />
             </div>
@@ -615,7 +594,6 @@ export default function AverraCaseStudyPage() {
             <div className="mt-12">
               <CaseStudyImage
                 src="averra-academics.webp"
-                lightSrc="averra-academics-light.webp"
                 alt="Averra academics workspace"
               />
             </div>
@@ -668,7 +646,6 @@ export default function AverraCaseStudyPage() {
             <div className="mt-12">
               <CaseStudyImage
                 src="averra-settings-class-naming.webp"
-                lightSrc="averra-settings-class-naming-light.webp"
                 alt="Averra class naming settings showing configurable class arms and live preview"
               />
             </div>

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import CaseStudyImageViewer, { CaseStudyHeroImage } from "@/components/ui/CaseStudyImage";
 import CaseStudyPagination from "@/components/ui/CaseStudyPagination";
 import Container from "@/components/ui/Container";
 import Footer from "@/components/sections/Footer";
@@ -20,29 +21,25 @@ function CaseStudyImage({
   lightSrc,
   alt,
   priority = false,
+  previewClipHeight,
+  previewMaxWidth,
 }: {
   src: string;
-  lightSrc: string;
+  lightSrc?: string;
   alt: string;
   priority?: boolean;
+  previewClipHeight?: number;
+  previewMaxWidth?: string | number;
 }) {
   return (
-    <div className="overflow-hidden rounded-[1.5rem] border border-border bg-card">
-      <img
-        src={`${base}/${lightSrc}`}
-        alt={alt}
-        loading={priority ? "eager" : "lazy"}
-        className="block h-auto w-full dark:hidden"
-      />
-
-      <img
-        src={`${base}/${src}`}
-        alt=""
-        aria-hidden="true"
-        loading={priority ? "eager" : "lazy"}
-        className="hidden h-auto w-full dark:block"
-      />
-    </div>
+    <CaseStudyImageViewer
+      src={`${base}/${src}`}
+      lightSrc={lightSrc ? `${base}/${lightSrc}` : undefined}
+      alt={alt}
+      priority={priority}
+      previewClipHeight={previewClipHeight}
+      previewMaxWidth={previewMaxWidth}
+    />
   );
 }
 
@@ -186,9 +183,9 @@ export default function SovaCustomerCaseStudyPage() {
               </div>
 
               <div className="mt-12 lg:mt-16">
-                <CaseStudyImage
-                  src="sova-customer-hero.webp"
-                  lightSrc="sova-customer-hero-light.webp"
+                <CaseStudyHeroImage
+                  src={`${base}/sova-customer-hero.webp`}
+                  lightSrc={`${base}/sova-customer-hero-light.webp`}
                   alt="Sova customer mobile experience showing the primary app journey"
                   priority
                 />
@@ -224,20 +221,11 @@ export default function SovaCustomerCaseStudyPage() {
               </div>
             </div>
 
-            <div className="mt-14 overflow-hidden rounded-[1.5rem] border border-border bg-card lg:mt-20">
-              <img
-                src={`${base}/sova-app-aquisition-landing-page-light.webp`}
+            <div className="mt-14 lg:mt-20">
+              <CaseStudyImage
+                src="sova-app-aquisition-landing-page.webp"
                 alt="Sova app acquisition landing page"
-                loading="lazy"
-                className="block h-auto w-full dark:hidden"
-              />
-
-              <img
-                src={`${base}/sova-app-aquisition-landing-page.webp`}
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
-                className="hidden h-auto w-full dark:block"
+                previewClipHeight={800}
               />
             </div>
           </Container>
@@ -368,7 +356,6 @@ export default function SovaCustomerCaseStudyPage() {
             <div className="mt-12">
               <CaseStudyImage
                 src="sova-customer-property.webp"
-                lightSrc="sova-customer-property-light.webp"
                 alt="Sova property list and property detail experience"
               />
             </div>
@@ -422,13 +409,11 @@ export default function SovaCustomerCaseStudyPage() {
             <div className="mt-12 space-y-5">
               <CaseStudyImage
                 src="sova-customer-add-property.webp"
-                lightSrc="sova-customer-add-property-light.webp"
                 alt="Sova add property flow"
               />
 
               <CaseStudyImage
                 src="sova-customer-property-area-edit.webp"
-                lightSrc="sova-customer-property-area-edit-light.webp"
                 alt="Sova property spaces and area editing flow"
               />
             </div>
@@ -480,7 +465,6 @@ export default function SovaCustomerCaseStudyPage() {
             <div className="mt-12">
               <CaseStudyImage
                 src="sova-customer-property-service.webp"
-                lightSrc="sova-customer-property-service-light.webp"
                 alt="Sova service selection and property booking experience"
               />
             </div>
@@ -527,7 +511,6 @@ export default function SovaCustomerCaseStudyPage() {
             <div className="mt-12">
               <CaseStudyImage
                 src="sova-customer-day-time.webp"
-                lightSrc="sova-customer-day-time-light.webp"
                 alt="Sova day and time window selection flow"
               />
             </div>
@@ -579,7 +562,6 @@ export default function SovaCustomerCaseStudyPage() {
             <div className="mt-12">
               <CaseStudyImage
                 src="sova-customer-review-confirmation.webp"
-                lightSrc="sova-customer-review-confirmation-light.webp"
                 alt="Sova booking review and confirmation flow"
               />
             </div>
@@ -632,7 +614,6 @@ export default function SovaCustomerCaseStudyPage() {
             <div className="mt-12">
               <CaseStudyImage
                 src="sova-customer-booking-detail.webp"
-                lightSrc="sova-customer-booking-detail-light.webp"
                 alt="Sova upcoming bookings and booking detail management experience"
               />
             </div>
@@ -666,7 +647,6 @@ export default function SovaCustomerCaseStudyPage() {
             <div className="mt-12">
               <CaseStudyImage
                 src="sova-customer-home-profile.webp"
-                lightSrc="sova-customer-home-profile-light.webp"
                 alt="Sova customer home and profile experience"
               />
             </div>
@@ -693,13 +673,11 @@ export default function SovaCustomerCaseStudyPage() {
             <div className="mt-12 space-y-5">
               <CaseStudyImage
                 src="sova-customer-scope-edit.webp"
-                lightSrc="sova-customer-scope-edit-light.webp"
                 alt="Sova cleaning scope edit states"
               />
 
               <CaseStudyImage
                 src="sova-customer-extra-service-edit-add.webp"
-                lightSrc="sova-customer-extra-service-edit-add-light.webp"
                 alt="Sova extra service and add-on editing states"
               />
             </div>
